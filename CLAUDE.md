@@ -1,3 +1,15 @@
+### For generating tasks
+
+```bash
+uv run modal run --detach robogen_modal_conda_with_apis.py --task-description "[[task description]]" --target-model-provider [[either "novita" for "openai"]] --generate-task
+```
+
+### For executing tasks (policy training)
+
+```bash
+uv run modal run --detach robogen_modal_conda_with_apis.py --task-config-path "./data/generated_task_from_description/[[folder]]//[[config file]]" --execute
+```
+
 Always do the following
 - if `pyproject.toml` is present, use `uv run <filename.py>` and `uv` to run files
 - preface any modal commands in the cli with: `export PYTHONIOENCODING="utf-8"; modal ...`
