@@ -1,0 +1,36 @@
+No inertial data for link, using mass=1, localinertiadiagonal = 1,1,1, identity local inertial frameb3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+link_1b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+No inertial data for link, using mass=1, localinertiadiagonal = 1,1,1, identity local inertial frameb3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+link_2b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,152]:
+URDF file 'data/dataset/103473/mobility.urdf' not found
+{'all_uid': ['53420893c98d4de992dea72a94110fe5', '216de5761a4a4384bb8f34404af603a1', '2c03fc90a4b34d54bc125f5109f60e17', '3729cf312d054b9db8767c934ed13215', '2cb9f4ffe72749c5841c164a857e7d78', 'e9e3272375de41f1909faddc53de7d11'], 'center': '(0.2, 0.3, 0)', 'lang': 'a ceramic coffee mug with a handle', 'name': 'coffee_mug', 'on_table': True, 'path': 'coffee_mug.obj', 'size': 0.08, 'type': 'mesh', 'uid': ['2c03fc90a4b34d54bc125f5109f60e17']}
+object a ceramic coffee mug with a handle choosing uid 2c03fc90a4b34d54bc125f5109f60e17 urdf_path objaverse_utils/data/obj/2c03fc90a4b34d54bc125f5109f60e17/material_non_vhacd.urdf
+{'all_uid': ['f578b6b94a0741a0b8c89b0935747d52', '8fd3803bcfac450ca9feec4d829c4aa4', '6b07befeed6f45c08bc02fad72bccb21', '8b5d9c0cdbe24c4a927ac5a99ed4582b', '9cae5abb7c2e4e57a405579fa6922672', '7a69500144fa4d4bae2cf1576f8b6ce9', 'a7e9fc310f9b4fd3aac55f31bf9d6126', '6f8acb0c5b2643a38a6ddaeed055c05e', '8146e99925fb4b49839e4fa7ace83f0f', '0ecaef2257224073b8c9bc9014bfe685'], 'center': '(0.8, 0.2, 0)', 'lang': 'a bag of coffee beans', 'name': 'coffee_beans', 'on_table': True, 'path': 'coffee_beans.obj', 'size': 0.012, 'type': 'mesh', 'uid': ['8b5d9c0cdbe24c4a927ac5a99ed4582b']}
+object a bag of coffee beans choosing uid 8b5d9c0cdbe24c4a927ac5a99ed4582b urdf_path objaverse_utils/data/obj/8b5d9c0cdbe24c4a927ac5a99ed4582b/material_non_vhacd.urdf
+{'all_uid': ['292829cc538c43c1aa22f31a59308557', '2244cb8af7584fa18cb049426f7a89c8', 'af4f6b41b7f6474190c80247f43cf200', '5047ccda4b1246768087975057209630', 'a056e366e9514ea88cd7aeb946da606f', '5352341ae2194363bf3a3778c1f0cc0f'], 'center': '(0.5, 0.8, 0)', 'lang': 'a stainless steel teaspoon', 'name': 'spoon', 'on_table': True, 'path': 'spoon.obj', 'size': 0.1, 'type': 'mesh', 'uid': ['292829cc538c43c1aa22f31a59308557']}
+object a stainless steel teaspoon choosing uid 292829cc538c43c1aa22f31a59308557 urdf_path objaverse_utils/data/obj/292829cc538c43c1aa22f31a59308557/material_non_vhacd.urdf
+{'center': '(0.1, 0.7, 0)', 'lang': 'a two-slice kitchen toaster', 'name': 'Toaster', 'on_table': True, 'path': 'toaster.obj', 'reward_asset_path': '103473', 'size': 0.3, 'type': 'urdf'}
+{'all_uid': ['46c7d789b0a248f7947f002fc3a26a80', 'e20b5c90c0624c259435161fc4edf8ef', '87409d43659c4de0afa1c23f04b8ed88', '8a80d46382674f21b62528cecc670b3a', 'd19b642533494aec86fe8f125bcbf483', '1f0917b3d8ae471ea2782cc92281d408'], 'center': '(0.7, 0.6, 0)', 'lang': 'a wooden napkin holder', 'name': 'napkin_holder', 'on_table': True, 'path': 'napkin_holder.obj', 'size': 0.1, 'type': 'mesh', 'uid': ['46c7d789b0a248f7947f002fc3a26a80', 'e20b5c90c0624c259435161fc4edf8ef', '87409d43659c4de0afa1c23f04b8ed88', '8a80d46382674f21b62528cecc670b3a', 'd19b642533494aec86fe8f125bcbf483', '1f0917b3d8ae471ea2782cc92281d408']}
+object a wooden napkin holder choosing uid 46c7d789b0a248f7947f002fc3a26a80 urdf_path objaverse_utils/data/obj/46c7d789b0a248f7947f002fc3a26a80/material_non_vhacd.urdf
+Finished loading object:  box
+Finished loading object:  coffee_mug
+Finished loading object:  coffee_beans
+Finished loading object:  spoon
+Traceback (most recent call last):
+  File "/root/RoboGen/execute.py", line 272, in <module>
+    execute(task_config_path, resume=args.resume, training_algo=args.training_algo, time_string=args.time_string,      
+  File "/root/RoboGen/execute.py", line 192, in execute
+    rgbs, states = execute_primitive(task_config_path, solution_path, substep, last_restore_state_file, save_path,     
+  File "/root/RoboGen/execute.py", line 14, in execute_primitive
+    env, safe_config = build_up_env(task_config, solution_path, task_name, last_restore_state_file,
+  File "/root/RoboGen/manipulation/utils.py", line 157, in build_up_env
+    env = env_class(**save_config)
+  File "/root/RoboGen/data/generated_task_from_description/Turn_on_the_coffee_machine_Box_100426_2025-10-31-14-25-49/task_Turn_on_the_coffee_machine/grasp_the_first_lid_of_the_coffee_machine.py", line 11, in __init__
+    super().__init__(*args, **kwargs)
+  File "/root/RoboGen/manipulation/sim.py", line 80, in __init__
+    self.set_scene()
+  File "/root/RoboGen/manipulation/sim.py", line 232, in set_scene
+    self.load_object(urdf_paths, urdf_sizes, urdf_positions, urdf_names, urdf_types, urdf_on_table, urdf_movables)     
+  File "/root/RoboGen/manipulation/sim.py", line 422, in load_object
+    id = p.loadURDF(path, basePosition=load_pos, baseOrientation=orientation, physicsClientId=self.id, useFixedBase=use_fixed_base, globalScaling=size)
+pybullet.error: Cannot load URDF file.
