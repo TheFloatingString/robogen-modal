@@ -1,12 +1,19 @@
 import modal
 import os
+import sys
 import argparse
 
+# Fix encoding issues on Windows
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8')
+    sys.stderr.reconfigure(encoding='utf-8')
+
 # Hardcoded API keys
-NOVITA_API_KEY = os.getenv('NOVITA_API_KEY') 
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY') 
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY") 
-WANDB_API_KEY = os.getenv("WANDB_API_KEY")
+NOVITA_API_KEY = ""
+OPENAI_API_KEY = ""
+ANTHROPIC_API_KEY = ""
+OPENROUTER_API_KEY = ""
+WANDB_API_KEY = ""
 
 # Create Modal app
 app = modal.App("robogen-conda")
@@ -43,9 +50,11 @@ image = (
         "mkdir -p /opt/conda",
     )
     .run_commands(
-        # Clone RoboGen repository and checkout specific commit
-        "git clone https://github.com/TheFloatingString/RoboGen-fork.git /root/RoboGen",
-        "cd /root/RoboGen && git checkout 9920fa4e4758c1e1baab4fa50bac2c60e3459311",
+        # Clone RoboGen repository
+        "git clone https://github.com/TheFloatingString/RoboGen-fork.git /root/RoboGen || true",
+        # Checkout specific commit
+        # "cd /root/RoboGen && git checkout b790be68cdf443b81be81bb08aa93b2e58eee45c",
+        "cd /root/RoboGen && git checkout 5234d95e2beccbca21c92aa3304279c48be955ef",
     )
     .run_commands(
         # Create conda environment from environment.yaml
@@ -58,6 +67,10 @@ image = (
     .run_commands(
         # Install ompl wheel
         "/opt/conda/envs/robogen/bin/pip install /root/RoboGen/ompl-1.6.0*.whl",
+    )
+    .run_commands(
+        "cd /root/RoboGen && git pull origin main",
+        force_build=True
     )
 )
 
@@ -77,7 +90,7 @@ def setup_dataset():
 
     # Check if dataset already exists
     if os.path.exists("/data/dataset") and os.listdir("/data/dataset"):
-        print("✓ Dataset already exists, skipping download")
+        print("[OK] Dataset already exists, skipping download")
         return {"status": "already_exists"}
 
     # Create data directory
@@ -142,18 +155,18 @@ def setup_dataset():
     if unzip_result.returncode != 0:
         return {"status": "unzip_failed", "error": "Unzip failed, check logs above"}
 
-    print(f"✓ Extracted {file_count} files successfully!")
+    print(f"[OK] Extracted {file_count} files successfully!")
 
     # Clean up zip file
     print("\n[3/3] Cleaning up...")
     if os.path.exists(output_file):
         os.remove(output_file)
-        print("✓ Removed zip file")
+        print("[OK] Removed zip file")
 
     # Commit volume changes
-    print("\n⟳ Committing volume changes...")
+    print("\n> Committing volume changes...")
     dataset_volume.commit()
-    print("✓ Dataset setup complete and volume committed!")
+    print("[OK] Dataset setup complete and volume committed!")
     print("=" * 80)
 
     return {"status": "success", "files_extracted": file_count}
@@ -176,7 +189,7 @@ def setup_embeddings():
     # Check if the actual embeddings file exists (not just the zip)
     embeddings_file = "/embeddings_data/partnet_mobility_category_embeddings.pt"
     if os.path.exists(embeddings_file):
-        print("✓ Embeddings already exist, skipping download")
+        print("[OK] Embeddings already exist, skipping download")
         file_size = os.path.getsize(embeddings_file)
         print(f"  Found: partnet_mobility_category_embeddings.pt ({file_size / (1024**2):.2f} MB)")
         return {"status": "already_exists"}
@@ -220,7 +233,7 @@ def setup_embeddings():
     if result.returncode != 0:
         return {"status": "download_failed", "error": "Download failed, check logs above"}
 
-    print("\n✓ Download complete!")
+    print("\n[OK] Download complete!")
 
     # Check if downloaded file is a zip and unzip it
     print("\n[2/3] Checking for zip file...")
@@ -247,11 +260,11 @@ def setup_embeddings():
             print(f"Unzip output: {unzip_result.stdout}")
             return {"status": "unzip_failed", "error": "Unzip failed, check logs above"}
 
-        print("✓ Unzip complete!")
+        print("[OK] Unzip complete!")
 
         # Remove zip file after extraction
         os.remove(zip_file)
-        print(f"✓ Removed zip file")
+        print(f"[OK] Removed zip file")
 
     # List downloaded files
     print("\n[3/3] Verifying downloaded files...")
@@ -260,12 +273,12 @@ def setup_embeddings():
         file_path = f"/embeddings_data/{file}"
         if os.path.isfile(file_path):
             file_size = os.path.getsize(file_path)
-            print(f"      ✓ {file} ({file_size / (1024**2):.2f} MB)")
+            print(f"      [OK] {file} ({file_size / (1024**2):.2f} MB)")
 
     # Commit volume changes
-    print("\n⟳ Committing volume changes...")
+    print("\n> Committing volume changes...")
     embeddings_volume.commit()
-    print("✓ Embeddings setup complete and volume committed!")
+    print("[OK] Embeddings setup complete and volume committed!")
     print("=" * 80)
 
     return {"status": "success", "files": downloaded_files}
@@ -285,6 +298,7 @@ def setup_embeddings():
             "OPENAI_API_KEY": OPENAI_API_KEY,
             "ANTHROPIC_API_KEY": ANTHROPIC_API_KEY,
             "NOVITA_API_KEY": NOVITA_API_KEY,
+            "OPENROUTER_API_KEY": OPENROUTER_API_KEY,
             "WANDB_API_KEY": WANDB_API_KEY
         }
     )],
@@ -317,14 +331,14 @@ def run_prompt_from_description(target_model_provider: str = "novita", task_desc
         # Create fresh symlink
         if not os.path.exists(target_path):
             os.symlink("/data/dataset", target_path)
-            print("✓ Linked dataset volume")
+            print("[OK] Linked dataset volume")
             # Verify the dataset has content
             dataset_items = os.listdir("/data/dataset")
             print(f"  Dataset contains {len(dataset_items)} items")
             if "100426" in dataset_items:
-                print("  ✓ Found object 100426")
+                print("  [OK] Found object 100426")
     else:
-        print("⚠ Warning: /data/dataset not found - volume may not be set up")
+        print("[!] Warning: /data/dataset not found - volume may not be set up")
 
     # Link embeddings files to expected path
     if os.path.exists("/embeddings_data"):
@@ -334,7 +348,7 @@ def run_prompt_from_description(target_model_provider: str = "novita", task_desc
             source_path = f"/embeddings_data/{file}"
             if not os.path.exists(target_path):
                 os.symlink(source_path, target_path)
-        print(f"✓ Linked {len(embeddings_files)} embeddings file(s)")
+        print(f"[OK] Linked {len(embeddings_files)} embeddings file(s)")
 
     # Link outputs volume to generated_task_from_description directory
     generated_tasks_path = "/root/RoboGen/data/generated_task_from_description"
@@ -350,7 +364,7 @@ def run_prompt_from_description(target_model_provider: str = "novita", task_desc
 
         # Create symlink to outputs volume
         os.symlink("/outputs", generated_tasks_path)
-        print("✓ Linked /root/RoboGen/data/generated_task_from_description to outputs volume")
+        print("[OK] Linked /root/RoboGen/data/generated_task_from_description to outputs volume")
 
     # Set up environment to use conda
     env = os.environ.copy()
@@ -394,10 +408,10 @@ def run_prompt_from_description(target_model_provider: str = "novita", task_desc
     print(f"Return code: {result.returncode}")
 
     # Commit volume changes to persist outputs and model cache
-    print("\n⟳ Committing volume changes...")
+    print("\n> Committing volume changes...")
     outputs_volume.commit()
     models_cache_volume.commit()
-    print("✓ Outputs and model cache saved to volumes!")
+    print("[OK] Outputs and model cache saved to volumes!")
 
     return {
         "stdout": result.stdout,
@@ -420,6 +434,7 @@ def run_prompt_from_description(target_model_provider: str = "novita", task_desc
             "OPENAI_API_KEY": OPENAI_API_KEY,
             "ANTHROPIC_API_KEY": ANTHROPIC_API_KEY,
             "NOVITA_API_KEY": NOVITA_API_KEY,
+            "OPENROUTER_API_KEY": OPENROUTER_API_KEY,
             "WANDB_API_KEY": WANDB_API_KEY
         }
     )],
@@ -452,14 +467,14 @@ def run_execute(target_model_provider: str = "novita", task_config_path: str = N
         # Create fresh symlink
         if not os.path.exists(target_path):
             os.symlink("/data/dataset", target_path)
-            print("✓ Linked dataset volume")
+            print("[OK] Linked dataset volume")
             # Verify the dataset has content
             dataset_items = os.listdir("/data/dataset")
             print(f"  Dataset contains {len(dataset_items)} items")
             if "100426" in dataset_items:
-                print("  ✓ Found object 100426")
+                print("  [OK] Found object 100426")
     else:
-        print("⚠ Warning: /data/dataset not found - volume may not be set up")
+        print("[!] Warning: /data/dataset not found - volume may not be set up")
 
     # Link embeddings files to expected path
     if os.path.exists("/embeddings_data"):
@@ -469,7 +484,7 @@ def run_execute(target_model_provider: str = "novita", task_config_path: str = N
             source_path = f"/embeddings_data/{file}"
             if not os.path.exists(target_path):
                 os.symlink(source_path, target_path)
-        print(f"✓ Linked {len(embeddings_files)} embeddings file(s)")
+        print(f"[OK] Linked {len(embeddings_files)} embeddings file(s)")
 
     # Link outputs volume to generated_task_from_description directory
     generated_tasks_path = "/root/RoboGen/data/generated_task_from_description"
@@ -485,7 +500,7 @@ def run_execute(target_model_provider: str = "novita", task_config_path: str = N
 
         # Create symlink to outputs volume
         os.symlink("/outputs", generated_tasks_path)
-        print("✓ Linked /root/RoboGen/data/generated_task_from_description to outputs volume")
+        print("[OK] Linked /root/RoboGen/data/generated_task_from_description to outputs volume")
 
     # Set up environment to use conda
     env = os.environ.copy()
@@ -546,9 +561,9 @@ def run_execute(target_model_provider: str = "novita", task_config_path: str = N
     print(f"{'='*80}")
 
     # Commit model cache volume to persist downloaded models
-    print("\n⟳ Committing model cache volume...")
+    print("\n> Committing model cache volume...")
     models_cache_volume.commit()
-    print("✓ Model cache saved! Next run will use cached models.")
+    print("[OK] Model cache saved! Next run will use cached models.")
 
     return {
         "stdout": ''.join(output_lines),
@@ -585,22 +600,22 @@ def main(
     print("STEP 1: Setting up dataset...")
     dataset_result = setup_dataset.remote()
     if dataset_result["status"] == "already_exists":
-        print("→ Dataset already configured")
+        print("-> Dataset already configured")
     elif dataset_result["status"] == "success":
-        print(f"→ Dataset setup successful! Extracted {dataset_result.get('files_extracted', 'N/A')} files")
+        print(f"-> Dataset setup successful! Extracted {dataset_result.get('files_extracted', 'N/A')} files")
     else:
-        print(f"✗ Dataset setup failed: {dataset_result.get('error', 'Unknown error')}")
+        print(f"[X] Dataset setup failed: {dataset_result.get('error', 'Unknown error')}")
         return
 
     # Step 2: Setup embeddings (always run)
     print("\nSTEP 2: Setting up embeddings...")
     embeddings_result = setup_embeddings.remote()
     if embeddings_result["status"] == "already_exists":
-        print("→ Embeddings already configured")
+        print("-> Embeddings already configured")
     elif embeddings_result["status"] == "success":
-        print(f"→ Embeddings setup successful! Downloaded {len(embeddings_result.get('files', []))} file(s)")
+        print(f"-> Embeddings setup successful! Downloaded {len(embeddings_result.get('files', []))} file(s)")
     else:
-        print(f"✗ Embeddings setup failed: {embeddings_result.get('error', 'Unknown error')}")
+        print(f"[X] Embeddings setup failed: {embeddings_result.get('error', 'Unknown error')}")
         return
 
     # Determine what to run based on flags
@@ -628,7 +643,7 @@ def main(
         print("STEP 3: Running prompt_from_description.py")
         print("=" * 80)
         result1 = run_prompt_from_description.remote(target_model_provider, task_description)
-        print(f"\n→ Completed with return code: {result1['returncode']}\n")
+        print(f"\n-> Completed with return code: {result1['returncode']}\n")
 
     # Step 4: Run execute
     if run_execution:
@@ -636,8 +651,8 @@ def main(
         print("STEP 4: Running execute.py")
         print("=" * 80)
         result2 = run_execute.remote(target_model_provider, task_config_path)
-        print(f"\n→ Completed with return code: {result2['returncode']}\n")
+        print(f"\n-> Completed with return code: {result2['returncode']}\n")
 
     print("=" * 80)
-    print("✓ ALL STEPS COMPLETED!")
+    print("[OK] ALL STEPS COMPLETED!")
     print("=" * 80)
