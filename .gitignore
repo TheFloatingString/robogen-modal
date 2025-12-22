@@ -13,3 +13,6 @@ wheels/
 *.env
 
 robogen_modal_conda_with_apis.py
+
+# Claude
+.claude
