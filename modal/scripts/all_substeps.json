@@ -1,0 +1,1757 @@
+{
+  "data": [
+    {
+      "dirname": "20251025_041944_Put_a_pen_into_the_box_Box_100426_2025-10-25-04-18-01",
+      "substeps": [
+        "grasp the lid of the box",
+        "open the lid of the box",
+        "grasp the pen",
+        "move the pen into the box",
+        "grasp the lid of the box again",
+        "close the lid of the box"
+      ]
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-01-37-06",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-01-37-43",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-01-38-46",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-01-40-13",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-01-41-09",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-09-11-49",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-09-18-45",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-09-19-52",
+      "substeps": [
+        "grasp the box body",
+        "align the box with the arrow"
+      ]
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-09-21-45",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-09-22-31",
+      "substeps": [
+        "grasp the box body",
+        "move and rotate the box to align it with the hallway arrow"
+      ]
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-10-09-13",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-10-10-09",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-10-11-02",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-10-12-00",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-10-12-40",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-14-22-13",
+      "substeps": []
+    },
+    {
+      "dirname": "Align_the_box_with_the_hallway_arrow_on_the_floor_Box_100426_2025-12-12-14-23-07",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-01-00-12",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-01-01-24",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-01-02-18",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-01-03-02",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-01-03-54",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-06-25-54",
+      "substeps": [
+        "grasp the box",
+        "carry and place the box on the rug"
+      ]
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-06-31-15",
+      "substeps": [
+        "grasp the box",
+        "lift the box off the ground",
+        "move the box to be on top of the rug",
+        "release the box"
+      ]
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-06-34-19",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-06-41-27",
+      "substeps": [
+        "grasp the first lid of the box",
+        "close the first lid of the box",
+        "grasp the second lid of the box",
+        "close the second lid of the box",
+        "grasp the main body of the box",
+        "move the box onto the rug"
+      ]
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-06-48-44",
+      "substeps": [
+        "grasp the box body",
+        "move the box onto the rug",
+        "release the box"
+      ]
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-09-31-14",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-09-32-07",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-09-33-01",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-09-33-59",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-09-35-47",
+      "substeps": []
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-13-56-12",
+      "substeps": [
+        "grasp the box",
+        "lift the box up from its current position",
+        "move the box to above the rug",
+        "lower the box onto the rug"
+      ]
+    },
+    {
+      "dirname": "Carry_the_box_onto_the_rug_near_the_doorway_Box_100426_2025-12-12-13-58-38",
+      "substeps": []
+    },
+    {
+      "dirname": "Drive_to_the_red_bin_and_pick_the_nearest_cube_Box_100426_2025-11-07-17-16-18",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the cube",
+        "retrieve the cube from the box"
+      ]
+    },
+    {
+      "dirname": "Drive_to_the_red_bin_and_pick_the_nearest_cube_Box_100426_2025-11-07-17-19-44",
+      "substeps": [
+        "grasp the lid of the red bin",
+        "open the lid of the red bin",
+        "grasp the nearest cube",
+        "lift the cube out of the red bin"
+      ]
+    },
+    {
+      "dirname": "Find_screwdriver;_tighten_three_loose_screws._Box_100426_2025-11-14-16-58-12",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the screwdriver",
+        "tighten the first screw",
+        "tighten the second screw",
+        "tighten the third screw",
+        "release the screwdriver",
+        "grasp the first lid of the box to close it",
+        "close the first lid of the box",
+        "grasp the second lid of the box to close it",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "Find_screwdriver;_tighten_three_loose_screws._Box_100426_2025-11-14-17-01-19",
+      "substeps": []
+    },
+    {
+      "dirname": "Find_screwdriver;_tighten_three_loose_screws._Box_100426_2025-11-14-17-03-05",
+      "substeps": []
+    },
+    {
+      "dirname": "Find_screwdriver;_tighten_three_loose_screws._Box_100426_2025-11-14-17-05-49",
+      "substeps": [
+        "open the first lid of the box",
+        "tilt the first lid of the box to open it",
+        "grasp the screwdriver inside the box",
+        "place the screwdriver on the head of the first screw"
+      ]
+    },
+    {
+      "dirname": "Find_screwdriver;_tighten_three_loose_screws._Box_100426_2025-11-14-17-09-21",
+      "substeps": [
+        "grasp the first part of the lid",
+        "open the first part of the lid",
+        "grasp the second part of the lid",
+        "open the second part of the lid",
+        "grasp the screwdriver in the box",
+        "move the screwdriver to each screw (actions for moving the screwdriver to screw1, screw2, and screw3), and tighten them. given that actual screw tightening would involve complex torque control and might be challenging for vision, right now, it's enough to make sure that the screwdriver gets contact with the screw."
+      ]
+    },
+    {
+      "dirname": "Find_screwdriver_then_tighten_three_loose_screws_Box_100426_2025-11-14-17-13-32",
+      "substeps": []
+    },
+    {
+      "dirname": "Find_screwdriver_then_tighten_three_loose_screws_Box_100426_2025-11-14-17-15-58",
+      "substeps": []
+    },
+    {
+      "dirname": "Find_screwdriver_then_tighten_three_loose_screws_Box_100426_2025-11-14-17-17-57",
+      "substeps": [
+        "grasp the first box lid",
+        "open the first box lid",
+        "grasp the second box lid",
+        "open the second box lid",
+        "grasp the screwdriver",
+        "move the screwdriver to the first screw",
+        "move the screwdriver to the second screw",
+        "move the screwdriver to the third screw",
+        "release the screwdriver"
+      ]
+    },
+    {
+      "dirname": "Find_screwdriver_then_tighten_three_loose_screws_Box_100426_2025-11-14-17-21-07",
+      "substeps": []
+    },
+    {
+      "dirname": "Find_screwdriver_then_tighten_three_loose_screws_Box_100426_2025-11-14-17-24-41",
+      "substeps": []
+    },
+    {
+      "dirname": "Find_screwdriver_then_tighten_three_loose_screws_Box_100426_2025-11-14-17-27-32",
+      "substeps": [
+        "grasp the screwdriver",
+        "put the screwdriver on the table to free the gripper",
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the screwdriver",
+        "tighten the first screw",
+        "tighten the second screw",
+        "tighten the third screw",
+        "release the screwdriver",
+        "grasp the first lid of the box",
+        "close the first lid of the box",
+        "grasp the second lid of the box",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "Leave_the_room_through_the_closed_door_Box_100426_2025-10-31-14-41-01",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa,_against_the_wall_Box_100426_2025-12-12-01-13-36",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa,_against_the_wall_Box_100426_2025-12-12-01-14-14",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa,_against_the_wall_Box_100426_2025-12-12-01-15-05",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa,_against_the_wall_Box_100426_2025-12-12-01-16-07",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa,_against_the_wall_Box_100426_2025-12-12-01-17-08",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-07-28-44",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-07-29-32",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-07-32-18",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-07-35-01",
+      "substeps": [
+        "grasp the first lid of the box",
+        "close the first lid of the box",
+        "grasp the second lid of the box",
+        "close the second lid of the box",
+        "grasp the body of the box",
+        "move the box to the target location against the wall",
+        "release the box"
+      ]
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-07-44-31",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-09-46-01",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-09-47-04",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-09-47-58",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-09-48-56",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-09-49-47",
+      "substeps": []
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-14-09-15",
+      "substeps": [
+        "grasp the box",
+        "move the box against the wall"
+      ]
+    },
+    {
+      "dirname": "Move_the_box_beside_the_sofa_against_the_wall_Box_100426_2025-12-12-14-11-29",
+      "substeps": [
+        "grasp the box",
+        "move the box to a new location against the wall."
+      ]
+    },
+    {
+      "dirname": "Open_box_lid_then_place_cube_inside_then_close_box_Box_100426_2025-11-21-16-47-40",
+      "substeps": []
+    },
+    {
+      "dirname": "Open_box_lid_then_place_cube_inside_then_close_box_Box_100426_2025-11-21-16-56-43",
+      "substeps": []
+    },
+    {
+      "dirname": "Open_box_lid_then_place_cube_inside_then_close_box_Box_100426_2025-11-21-16-58-25",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the cube",
+        "put the cube into the box",
+        "release the cube",
+        "grasp the first lid of the box again",
+        "close the first lid of the box",
+        "grasp the second lid of the box again",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "Open_box_lid_then_place_cube_inside_then_close_box_Box_100426_2025-11-21-17-02-19",
+      "substeps": [
+        "grasp the box lid",
+        "open the box lid",
+        "grasp the cube",
+        "put the cube into the box",
+        "close the box lid"
+      ]
+    },
+    {
+      "dirname": "Open_box_lid_then_place_cube_inside_then_close_box_Box_100426_2025-11-21-17-08-26",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the lid by actuating joint_0",
+        "grasp the cube",
+        "move the cube inside the box",
+        "release the cube",
+        "grasp the lid again",
+        "close the box"
+      ]
+    },
+    {
+      "dirname": "Pick_up_the_blue_cube._Box_100426_2025-11-14-06-02-21",
+      "substeps": []
+    },
+    {
+      "dirname": "Pick_up_the_blue_cube._Box_100426_2025-11-14-06-11-45",
+      "substeps": [
+        "grasp the blue cube"
+      ]
+    },
+    {
+      "dirname": "Pick_up_the_blue_cube._Box_100426_2025-11-14-06-17-59",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the blue cube",
+        "lift the blue cube out of the box"
+      ]
+    },
+    {
+      "dirname": "Pick_up_the_cup,_pour_liquid,_and_set_it_down_Box_100426_2025-11-21-17-26-51",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat,_centered_Box_100426_2025-12-12-01-08-47",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat,_centered_Box_100426_2025-12-12-01-09-55",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat,_centered_Box_100426_2025-12-12-01-11-02",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat,_centered_Box_100426_2025-12-12-01-11-59",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat,_centered_Box_100426_2025-12-12-01-12-47",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-07-09-37",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-07-11-20",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-07-15-48",
+      "substeps": [
+        "grasp the box body",
+        "move the box to be centered on the chair seat",
+        "release the box"
+      ]
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-07-24-06",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-07-26-38",
+      "substeps": [
+        "grasp the first lid of the box",
+        "close the first lid of the box",
+        "grasp the second lid of the box",
+        "close the second lid of the box",
+        "grasp the box body",
+        "place the box on the chair seat centered",
+        "release the grasp on the box"
+      ]
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-09-41-33",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-09-42-20",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-09-43-20",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-09-44-11",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-09-45-08",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-14-05-16",
+      "substeps": [
+        "grasp the box.",
+        "move the box to the chair's seat."
+      ]
+    },
+    {
+      "dirname": "Place_the_box_on_the_chair_seat_centered_Box_100426_2025-12-12-14-07-07",
+      "substeps": [
+        "grasp the box body for manipulation",
+        "lift the box to the level of seat",
+        "move the box towards the chair",
+        "lower the box onto the chair's seat",
+        "release the box"
+      ]
+    },
+    {
+      "dirname": "Place_the_cube_on_the_blue_platform_Box_100426_2025-11-07-17-25-31",
+      "substeps": []
+    },
+    {
+      "dirname": "Place_the_cube_on_the_blue_platform_Box_100426_2025-11-07-17-28-39",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the cube",
+        "place the cube on the blue platform"
+      ]
+    },
+    {
+      "dirname": "Place_the_cube_on_the_blue_platform_Box_100426_2025-11-07-17-31-26",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the cube",
+        "move the cube to the target location"
+      ]
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-01-27-39",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-01-28-59",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-01-29-53",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-01-30-31",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-01-31-19",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-08-34-15",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-08-36-31",
+      "substeps": [
+        "grasp the main body of the box to pull it out.",
+        "pull the box out from under the bed.",
+        "grasp the first lid of the box.",
+        "open the first lid of the box.",
+        "grasp the second lid of the box.",
+        "open the second lid of the box."
+      ]
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-08-38-14",
+      "substeps": [
+        "grasp the box",
+        "pull the box out from under the bed"
+      ]
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-08-40-34",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-08-43-41",
+      "substeps": [
+        "grasp the main body of the box",
+        "pull the box out to an open space"
+      ]
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-10-00-35",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-10-01-29",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-10-02-17",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-10-03-16",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-10-04-15",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-14-18-45",
+      "substeps": []
+    },
+    {
+      "dirname": "Pull_the_box_out_from_under_the_bed_Box_100426_2025-12-12-14-19-25",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet,_past_the_threshold_Box_100426_2025-12-12-01-32-00",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet,_past_the_threshold_Box_100426_2025-12-12-01-32-54",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet,_past_the_threshold_Box_100426_2025-12-12-01-33-35",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet,_past_the_threshold_Box_100426_2025-12-12-01-34-49",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet,_past_the_threshold_Box_100426_2025-12-12-01-36-14",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-08-49-26",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-08-54-22",
+      "substeps": [
+        "attach the gripper to the box body",
+        "push the box into the closet"
+      ]
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-09-00-03",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-09-04-54",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-09-07-21",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "push the box into the closet"
+      ]
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-10-05-11",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-10-05-58",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-10-06-46",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-10-07-31",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-10-08-21",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-14-20-25",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_into_the_closet_past_the_threshold_Box_100426_2025-12-12-14-21-29",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-00-50-59",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-00-51-45",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-00-54-35",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-00-55-59",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-00-57-05",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-00-58-03",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-00-58-50",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-06-15-06",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-06-15-49",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-06-16-53",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-06-17-53",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-06-20-58",
+      "substeps": [
+        "move the end-effector to the side of the box to prepare for pushing",
+        "push the box until it is within the taped square"
+      ]
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-06-24-39",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-09-25-54",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-09-26-42",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-09-27-59",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-09-28-46",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-09-29-51",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-13-27-22",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-13-28-30",
+      "substeps": []
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-13-45-35",
+      "substeps": [
+        "move the robot end-effector above the box",
+        "generate force downwards to push the box"
+      ]
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-13-51-10",
+      "substeps": [
+        "grasp the box",
+        "push the box to the taped square"
+      ]
+    },
+    {
+      "dirname": "Push_the_box_to_the_taped_square_on_the_floor_Box_100426_2025-12-12-13-54-06",
+      "substeps": [
+        "grasp the box",
+        "push the box towards the taped square on the floor"
+      ]
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-25-04-37-36",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the pen",
+        "put the pen into the box",
+        "grasp the first lid of the box again",
+        "close the first lid of the box",
+        "grasp the second lid of the box again",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-25-16-53-44",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-25-16-56-50",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-25-16-58-19",
+      "substeps": [
+        "grasp the lid of the box",
+        "open the lid of the box",
+        "grasp the pen",
+        "put the pen into the box",
+        "release the grasp on the pen after it is in the box",
+        "grasp the lid of the box again",
+        "close the lid of the box"
+      ]
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-25-17-42-44",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-25-18-12-21",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-25-18-15-10",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-25-18-17-44",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the pen",
+        "put the pen into the box",
+        "grasp the first lid of the box again",
+        "close the first lid of the box",
+        "grasp the second lid of the box again",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-25-23-54-27",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-25-23-55-24",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-26-00-06-06",
+      "substeps": [
+        "grasp the box lid (link_0)",
+        "open the box lid",
+        "grasp the pen",
+        "put the pen into the box",
+        "grasp the box lid (link_0) again",
+        "close the box lid"
+      ]
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-26-00-13-55",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-26-00-15-36",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the pen",
+        "put the pen into the box",
+        "close the first lid of the box"
+      ]
+    },
+    {
+      "dirname": "Put_a_pen_into_the_box_Box_100426_2025-10-26-02-10-04",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the pen",
+        "put the pen into the box",
+        "grasp the first lid to close it",
+        "close the first lid of the box",
+        "grasp the second lid to close it",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-08-06-38",
+      "substeps": [
+        "grasp the body of the box",
+        "put the box on the lowest level of the shelf"
+      ]
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-08-13-14",
+      "substeps": [
+        "grasp the body of the box",
+        "move the box to the lowest level of the shelf",
+        "release the box"
+      ]
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-08-17-52",
+      "substeps": [
+        "grasp the first lid of the box",
+        "close the first lid of the box",
+        "grasp the second lid of the box",
+        "close the second lid of the box",
+        "grasp the box body",
+        "move the box to the shelf's lowest level and place it"
+      ]
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-08-25-22",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-08-27-59",
+      "substeps": [
+        "close the first lid of the box",
+        "close the second lid of the box",
+        "grasp the main body of the box",
+        "place the box on the lowest level of the shelf"
+      ]
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-09-55-34",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-09-56-29",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-09-57-40",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-09-58-38",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-09-59-39",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-14-16-45",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfs_lowest_level_Box_100426_2025-12-12-14-17-38",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfâ€™s_lowest_level_Box_100426_2025-12-12-01-22-22",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfâ€™s_lowest_level_Box_100426_2025-12-12-01-23-27",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfâ€™s_lowest_level_Box_100426_2025-12-12-01-24-19",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfâ€™s_lowest_level_Box_100426_2025-12-12-01-25-23",
+      "substeps": []
+    },
+    {
+      "dirname": "Put_the_box_on_the_shelfâ€™s_lowest_level_Box_100426_2025-12-12-01-26-20",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window,_then_stop_Box_100426_2025-12-12-01-18-06",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window,_then_stop_Box_100426_2025-12-12-01-18-40",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window,_then_stop_Box_100426_2025-12-12-01-19-26",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window,_then_stop_Box_100426_2025-12-12-01-20-08",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window,_then_stop_Box_100426_2025-12-12-01-21-14",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-07-47-19",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-07-54-19",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-07-56-36",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-07-58-58",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-08-04-32",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-09-50-47",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-09-52-00",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-09-52-56",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-09-53-47",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-09-54-46",
+      "substeps": []
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-14-13-00",
+      "substeps": [
+        "grasp the box body",
+        "rotate the box to face the window",
+        "stop rotating the box (release the box)"
+      ]
+    },
+    {
+      "dirname": "Rotate_the_box_to_face_the_window_then_stop_Box_100426_2025-12-12-14-14-55",
+      "substeps": [
+        "grasp the box",
+        "rotate the box to face the window"
+      ]
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-01-04-35",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-01-05-34",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-01-06-14",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-01-07-15",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-01-08-09",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-06-56-30",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-06-58-57",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-07-01-13",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-07-04-17",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-07-07-28",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-09-36-48",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-09-37-36",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-09-38-25",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-09-39-40",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-09-40-44",
+      "substeps": []
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-14-01-16",
+      "substeps": [
+        "grasp the box_body",
+        "move the box under the table",
+        "release the box"
+      ]
+    },
+    {
+      "dirname": "Slide_the_box_under_the_table_without_tipping_it_Box_100426_2025-12-12-14-03-13",
+      "substeps": [
+        "grasp the box",
+        "slide the box under the table"
+      ]
+    },
+    {
+      "dirname": "Stack_two_green_blocks_on_the_yellow_pallet_Box_100426_2025-11-07-17-46-17",
+      "substeps": [
+        "grasp the first green block",
+        "move the first green block over the pallet",
+        "release the first green block",
+        "grasp the second green block",
+        "move the second green block over the pallet, and the first block",
+        "release the second green block",
+        "move the arm away from the block"
+      ]
+    },
+    {
+      "dirname": "Stack_two_green_blocks_on_the_yellow_pallet_Box_100426_2025-11-07-17-51-13",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the first green block",
+        "place the first green block on the yellow pallet",
+        "grasp the second green block",
+        "place the second green block on top of the first green block"
+      ]
+    },
+    {
+      "dirname": "Turn_on_the_coffee_machine_Box_100426_2025-10-31-14-18-31",
+      "substeps": []
+    },
+    {
+      "dirname": "Turn_on_the_coffee_machine_Box_100426_2025-10-31-14-21-47",
+      "substeps": []
+    },
+    {
+      "dirname": "Turn_on_the_coffee_machine_Box_100426_2025-10-31-14-23-47",
+      "substeps": []
+    },
+    {
+      "dirname": "Turn_on_the_coffee_machine_Box_100426_2025-10-31-14-25-49",
+      "substeps": [
+        "grasp the first lid of the coffee machine",
+        "open the first lid of the coffee machine",
+        "grasp the second lid of the coffee machine",
+        "open the second lid of the coffee machine",
+        "turn on the coffee machine by pressing the power button"
+      ]
+    },
+    {
+      "dirname": "Turn_on_the_coffee_machine_Box_100426_2025-10-31-14-28-04",
+      "substeps": [
+        "approach the coffee machine's lid (link_0)",
+        "open the lid of the coffee machine",
+        "approach the control mechanism (link_1)",
+        "actuate the control mechanism (start the brewing process)"
+      ]
+    },
+    {
+      "dirname": "Turn_on_the_lamp_Box_100426_2025-10-31-14-42-53",
+      "substeps": []
+    },
+    {
+      "dirname": "Turn_on_the_lamp_Box_100426_2025-10-31-14-45-12",
+      "substeps": [
+        "grasp the lid of the box",
+        "turn on the lamp by rotating the lid"
+      ]
+    },
+    {
+      "dirname": "Turn_on_the_lamp_Box_100426_2025-10-31-14-46-51",
+      "substeps": []
+    },
+    {
+      "dirname": "Turn_on_the_lamp_Box_100426_2025-10-31-14-49-41",
+      "substeps": [
+        "grasp the \"rotation_lid\" of the lamp",
+        "rotate the \"rotation_lid\" to turn on the lamp"
+      ]
+    },
+    {
+      "dirname": "pick_up_the_cup_then_pour_the_liquid_then_set_it_down_Box_100426_2025-11-21-17-29-16",
+      "substeps": []
+    },
+    {
+      "dirname": "pick_up_the_cup_then_pour_the_liquid_then_set_it_down_Box_100426_2025-11-21-17-32-56",
+      "substeps": []
+    },
+    {
+      "dirname": "pour_liquid_task_Box_100426_2025-11-21-17-34-56",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the box to tilt it",
+        "tilt the box to pour the liquid into the container",
+        "place the box back on the table upright",
+        "close the first lid of the box",
+        "close the second lid of the box",
+        "close the second lid of the box",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "pour_liquid_task_Box_100426_2025-11-21-17-38-02",
+      "substeps": [
+        "grasp the lid of the box",
+        "open the lid of the box",
+        "grasp the jug with liquid",
+        "tilt the jug to pour the liquid into the box",
+        "grasp the lid of the box again",
+        "close the lid of the box"
+      ]
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-11-26-05-10-26",
+      "substeps": []
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-11-26-05-12-44",
+      "substeps": []
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-11-26-05-15-15",
+      "substeps": [
+        "grasp the first fridge door (link_0)",
+        "open the first fridge door",
+        "grasp the second fridge door (link_1)",
+        "open the second fridge door",
+        "grasp the bottle",
+        "put the bottle into the fridge",
+        "release the grasp on the bottle",
+        "grasp the first fridge door (link_0) again",
+        "close the first fridge door",
+        "grasp the second fridge door (link_1) again",
+        "close the second fridge door"
+      ]
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-11-26-05-19-53",
+      "substeps": [
+        "grasp the bottle.",
+        "grasp the fridge door.",
+        "open the fridge door.",
+        "move the bottle into the fridge.",
+        "release the bottle, ensuring it stays inside the fridge.",
+        "close the fridge door."
+      ]
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-11-26-05-24-05",
+      "substeps": [
+        "grasp the fridge door",
+        "open the fridge door",
+        "grasp the bottle",
+        "put the bottle inside the fridge",
+        "release grasp of the bottle",
+        "grasp the fridge door again",
+        "close the fridge door"
+      ]
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-11-26-05-26-23",
+      "substeps": [
+        "grasp the refrigerator door",
+        "open the refrigerator door",
+        "grasp the bottle",
+        "place the bottle in the refrigerator",
+        "release the bottle",
+        "grasp the refrigerator door again",
+        "close the refrigerator door"
+      ]
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-11-26-05-39-04",
+      "substeps": [
+        "grasp the fridge door",
+        "open the fridge door",
+        "grasp the bottle",
+        "put the bottle into the fridge",
+        "release the grasp",
+        "grasp the fridge door",
+        "close the fridge door"
+      ]
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-11-26-05-43-51",
+      "substeps": [
+        "grasp the first lid of the fridge",
+        "open the first lid of the fridge",
+        "grasp the second lid of the fridge",
+        "open the second lid of the fridge",
+        "grasp the bottle",
+        "put the bottle into the fridge",
+        "grasp the first lid of the fridge to close it",
+        "close the first lid of the fridge",
+        "grasp the second lid of the fridge to close it",
+        "close the second lid of the fridge"
+      ]
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-12-12-01-42-14",
+      "substeps": []
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-12-12-01-44-17",
+      "substeps": []
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-12-12-01-45-18",
+      "substeps": []
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-12-12-01-48-38",
+      "substeps": []
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-12-12-01-50-22",
+      "substeps": []
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-12-12-01-51-13",
+      "substeps": [
+        "grasp the bottle",
+        "move the bottle near the fridge",
+        "grasp the fridge door",
+        "open the fridge door",
+        "grasp the bottle again",
+        "put the bottle inside the fridge",
+        "grasp the fridge door again",
+        "close the fridge door"
+      ]
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-12-12-01-58-44",
+      "substeps": []
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-12-12-05-16-03",
+      "substeps": []
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-12-12-05-20-36",
+      "substeps": []
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-12-12-05-39-53",
+      "substeps": []
+    },
+    {
+      "dirname": "put_bottle_in_fridge_Box_100426_2025-12-12-05-57-42",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the bottle",
+        "put the bottle into the box",
+        "grasp the first lid of the box to close it",
+        "close the first lid of the box",
+        "grasp the second lid of the box to close it",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "put_the_box_in_the_middle_of_the_table_Box_100426_2025-10-25-17-03-56",
+      "substeps": [
+        "grasp the lid of the box",
+        "open the lid of the box",
+        "grasp the box body",
+        "lift the box up and place it in the middle of the table",
+        "grasp the box lid again",
+        "close the box lid"
+      ]
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-18-54-04",
+      "substeps": []
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-18-54-11",
+      "substeps": []
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-18-54-16",
+      "substeps": []
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-18-56-36",
+      "substeps": [
+        "grasp the box",
+        "rotate the box to face the window"
+      ]
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-18-56-43",
+      "substeps": []
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-18-59-08",
+      "substeps": []
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-18-59-14",
+      "substeps": [
+        "grasp the main body of the box",
+        "rotate the box to face the window"
+      ]
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-02-56",
+      "substeps": [
+        "grasp the body of the box to manipulate it",
+        "rotate the box to face the window"
+      ]
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-05-15",
+      "substeps": []
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-11-25",
+      "substeps": []
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-21-58",
+      "substeps": []
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-22-02",
+      "substeps": [
+        "grasp the main body of the box",
+        "rotate the box to face the window"
+      ]
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-22-13",
+      "substeps": []
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-29-55",
+      "substeps": [
+        "grasp the main body of the box",
+        "rotate the box to face the window",
+        "release the box"
+      ]
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-29-58",
+      "substeps": [
+        "grasp the main body of the box",
+        "lift the box up slightly",
+        "rotate the box to face the window",
+        "place the box back on its original spot",
+        "release the box"
+      ]
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-30-24",
+      "substeps": [
+        "grasp the main body of the box",
+        "rotate the box in-hand to face the window",
+        "release the box"
+      ]
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-32-15",
+      "substeps": [
+        "grasp the main body of the box",
+        "rotate the box to face the window",
+        "release the box"
+      ]
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-32-32",
+      "substeps": [
+        "grasp the box body",
+        "rotate the box to face the window"
+      ]
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-43-00",
+      "substeps": [
+        "grasp the main body of the box",
+        "rotate the box to face the window",
+        "release the grasp on the box"
+      ]
+    },
+    {
+      "dirname": "rotate_the_box_to_face_the_window_Box_100426_2025-12-20-19-43-13",
+      "substeps": [
+        "grasp the box body",
+        "rotate the box to face the window"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-17-10-21",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the toy block",
+        "put the toy block into the box",
+        "release the grasp on the object",
+        "grasp the first lid of the box again",
+        "close the first lid of the box",
+        "grasp the second lid of the box again",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-17-13-25",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the object to be stored",
+        "put the object into the box"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-17-17-54",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the object",
+        "put the object into the box",
+        "grasp the first lid of the box to close it",
+        "close the first lid of the box",
+        "grasp the second lid of the box to close it",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-17-25-03",
+      "substeps": [
+        "grasp the ball",
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "put the ball into the box",
+        "release grasp on the ball",
+        "grasp the first lid of the box to close it",
+        "close the first lid of the box",
+        "grasp the second lid of the box to close it",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-17-32-34",
+      "substeps": []
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-17-43-08",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the object to be stored",
+        "put the object inside the box",
+        "release the object",
+        "grasp the first lid to close it",
+        "close the first lid of the box",
+        "grasp the second lid to close it",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-18-56-41",
+      "substeps": []
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-18-59-08",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the toy block",
+        "put the toy block into the box",
+        "grasp the first lid of the box again to close it",
+        "close the first lid of the box",
+        "grasp the second lid of the box again to close it",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-19-04-55",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the object",
+        "put the object into the box",
+        "grasp the first lid of the box again to close it",
+        "close the first lid of the box",
+        "grasp the second lid of the box again to close it",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-20-05-33",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the toy block",
+        "put the toy block into the box",
+        "close the first lid of the box",
+        "actuate the first lid to close it",
+        "close the second lid of the box",
+        "actuate the second lid to close it"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-20-05-40",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the toy block",
+        "put the toy block into the box",
+        "grasp the first lid to close it",
+        "close the first lid of the box",
+        "grasp the second lid to close it",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-20-05-56",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the item",
+        "put the item inside the box",
+        "grasp the first lid of the box again",
+        "close the first lid of the box",
+        "grasp the second lid of the box again",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-20-05-57",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the item",
+        "put the item into the box",
+        "grasp the first lid of the box again to close it",
+        "close the first lid of the box",
+        "grasp the second lid of the box again to close it",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "store_an_object_inside_the_box_Box_100426_2025-12-20-20-06-28",
+      "substeps": [
+        "grasp the first lid of the box",
+        "open the first lid of the box",
+        "grasp the second lid of the box",
+        "open the second lid of the box",
+        "grasp the object",
+        "put the object into the box",
+        "grasp the first lid of the box again",
+        "close the first lid of the box",
+        "grasp the second lid of the box again",
+        "close the second lid of the box"
+      ]
+    }
+  ]
+}

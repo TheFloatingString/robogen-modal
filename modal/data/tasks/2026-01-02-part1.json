@@ -1,0 +1,23 @@
+[
+  { "prompt": "rotate desk fan speed knob", "object": "fan knob" },
+  { "prompt": "open cabinet door", "object": "cabinet door" },
+  { "prompt": "close cabinet door", "object": "cabinet door" },
+  { "prompt": "pull cabinet drawer out", "object": "cabinet drawer" },
+  { "prompt": "push cabinet drawer in", "object": "cabinet drawer" },
+  { "prompt": "place book on shelf", "object": "book" },
+  { "prompt": "remove book from shelf", "object": "book" },
+  { "prompt": "open wardrobe door", "object": "wardrobe door" },
+  { "prompt": "close wardrobe door", "object": "wardrobe door" },
+  { "prompt": "hang jacket on hanger", "object": "jacket" },
+  { "prompt": "remove jacket from hanger", "object": "jacket" },
+  { "prompt": "open sliding closet door", "object": "closet door" },
+  { "prompt": "close sliding closet door", "object": "closet door" },
+  { "prompt": "turn on light switch", "object": "light switch" },
+  { "prompt": "turn off light switch", "object": "light switch" },
+  { "prompt": "dim a table lamp", "object": "lamp switch" },
+  { "prompt": "raise window blinds", "object": "blinds" },
+  { "prompt": "lower window blinds", "object": "blinds" },
+  { "prompt": "open curtain", "object": "curtain" },
+  { "prompt": "close curtain", "object": "curtain" },
+  { "prompt": "open shower door", "object": "shower door" }
+]

@@ -1,0 +1,22 @@
+[
+  { "prompt": "close refrigerator door", "object": "refrigerator door" },
+  { "prompt": "open freezer drawer", "object": "freezer drawer" },
+  { "prompt": "close freezer drawer", "object": "freezer drawer" },
+  { "prompt": "place milk carton in refrigerator", "object": "milk carton" },
+  { "prompt": "remove milk carton from refrigerator", "object": "milk carton" },
+  { "prompt": "open food container lid", "object": "container lid" },
+  { "prompt": "close food container lid", "object": "container lid" },
+  { "prompt": "place leftovers into container", "object": "leftovers" },
+  { "prompt": "remove leftovers from container", "object": "leftovers" },
+  { "prompt": "load bowl into dishwasher", "object": "bowl" },
+  { "prompt": "unload bowl from dishwasher", "object": "bowl" },
+  { "prompt": "open dishwasher rack", "object": "dishwasher rack" },
+  { "prompt": "close dishwasher rack", "object": "dishwasher rack" },
+  { "prompt": "add dishwasher detergent", "object": "dishwasher detergent" },
+  { "prompt": "turn dishwasher on", "object": "dishwasher button" },
+  { "prompt": "turn dishwasher off", "object": "dishwasher button" },
+  { "prompt": "open microwave door", "object": "microwave door" },
+  { "prompt": "close microwave door", "object": "microwave door" },
+  { "prompt": "place plate in microwave", "object": "plate" },
+  { "prompt": "remove plate from microwave", "object": "plate" }
+]

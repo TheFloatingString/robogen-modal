@@ -1,0 +1,21 @@
+[
+  { "prompt": "remove frying pan from drying rack", "object": "frying pan" },
+  { "prompt": "open kettle lid", "object": "kettle lid" },
+  { "prompt": "close kettle lid", "object": "kettle lid" },
+  { "prompt": "turn on electric kettle", "object": "kettle switch" },
+  { "prompt": "turn off electric kettle", "object": "kettle switch" },
+  { "prompt": "pour hot water into mug", "object": "kettle" },
+  { "prompt": "add tea bag to mug", "object": "tea bag" },
+  { "prompt": "remove tea bag from mug", "object": "tea bag" },
+  { "prompt": "open stapler", "object": "stapler" },
+  { "prompt": "insert staples into stapler", "object": "staples" },
+  { "prompt": "staple a stack of papers", "object": "stapler" },
+  { "prompt": "place papers into folder", "object": "papers" },
+  { "prompt": "close folder", "object": "folder" },
+  { "prompt": "open laptop lid", "object": "laptop lid" },
+  { "prompt": "close laptop lid", "object": "laptop lid" },
+  { "prompt": "plug charger into laptop", "object": "charger" },
+  { "prompt": "unplug charger from laptop", "object": "charger" },
+  { "prompt": "rotate office chair to face desk", "object": "chair" },
+  { "prompt": "adjust office chair height", "object": "chair lever" }
+]

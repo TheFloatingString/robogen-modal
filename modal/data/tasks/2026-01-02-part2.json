@@ -1,0 +1,22 @@
+[
+  { "prompt": "close shower door", "object": "shower door" },
+  { "prompt": "turn on shower faucet", "object": "shower handle" },
+  { "prompt": "turn off shower faucet", "object": "shower handle" },
+  { "prompt": "adjust shower temperature", "object": "shower handle" },
+  { "prompt": "pick up towel from rack", "object": "towel" },
+  { "prompt": "place towel on rack", "object": "towel" },
+  { "prompt": "open medicine cabinet", "object": "medicine cabinet door" },
+  { "prompt": "close medicine cabinet", "object": "medicine cabinet door" },
+  { "prompt": "dispense soap from pump", "object": "soap pump" },
+  { "prompt": "open toothpaste cap", "object": "toothpaste cap" },
+  { "prompt": "close toothpaste cap", "object": "toothpaste cap" },
+  { "prompt": "squeeze toothpaste onto toothbrush", "object": "toothpaste tube" },
+  { "prompt": "rinse toothbrush", "object": "toothbrush" },
+  { "prompt": "load toothbrush into cup", "object": "toothbrush" },
+  { "prompt": "open trash bin lid", "object": "trash bin lid" },
+  { "prompt": "close trash bin lid", "object": "trash bin lid" },
+  { "prompt": "take out trash bag", "object": "trash bag" },
+  { "prompt": "tie trash bag", "object": "trash bag" },
+  { "prompt": "insert fresh trash bag", "object": "trash bag" },
+  { "prompt": "open refrigerator door", "object": "refrigerator door" }
+]

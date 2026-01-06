@@ -1,0 +1,92 @@
+timestamp,task_description,model_name,model_provider,run_number,status,app_id,output_directory,toml_files,notes
+2025-12-11T19:43:59.474754,Push the box to the taped square on the floor,glm-4.6,novita,1,failed,,,,"'export' is not recognized as an internal or external command,
+operable program or batch file.
+"
+2025-12-11T19:44:01.492877,Push the box to the taped square on the floor,glm-4.6,novita,2,failed,,,,"'export' is not recognized as an internal or external command,
+operable program or batch file.
+"
+2025-12-11T19:44:03.512751,Push the box to the taped square on the floor,glm-4.6,novita,3,failed,,,,"'export' is not recognized as an internal or external command,
+operable program or batch file.
+"
+2025-12-11T19:44:05.538165,Push the box to the taped square on the floor,glm-4.6,novita,4,failed,,,,"'export' is not recognized as an internal or external command,
+operable program or batch file.
+"
+2025-12-11T19:44:07.556649,Push the box to the taped square on the floor,glm-4.6,novita,5,failed,,,,"'export' is not recognized as an internal or external command,
+operable program or batch file.
+"
+2025-12-11T19:44:09.580562,Carry the box onto the rug near the doorway,glm-4.6,novita,1,failed,,,,"'export' is not recognized as an internal or external command,
+operable program or batch file.
+"
+2025-12-11T19:44:36.179755,Push the box to the taped square on the floor,glm-4.6,novita,1,failed,,,,"+- Error ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 'charmap' codec can't encode character '\u2713' in position 0: character maps to <undefined>                                                                                                              |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+"
+2025-12-11T19:45:01.508810,Push the box to the taped square on the floor,glm-4.6,novita,1,failed,,,,"'export' is not recognized as an internal or external command,
+operable program or batch file.
+"
+2025-12-11T19:45:03.527669,Push the box to the taped square on the floor,glm-4.6,novita,2,failed,,,,"'export' is not recognized as an internal or external command,
+operable program or batch file.
+"
+2025-12-11T19:45:58.268216,Push the box to the taped square on the floor,glm-4.6,novita,1,failed,,,,"+- Error ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 'charmap' codec can't encode character '\u2713' in position 0: character maps to <undefined>                                                                                                              |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+"
+2025-12-11T19:46:02.284519,Push the box to the taped square on the floor,glm-4.6,novita,2,failed,,,,"+- Error ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 'charmap' codec can't encode character '\u2713' in position 0: character maps to <undefined>                                                                                                              |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+"
+2025-12-11T19:47:34.453674,Push the box to the taped square on the floor,glm-4.6,novita,1,failed,,,,"+- Error ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 'charmap' codec can't encode character '\u2713' in position 0: character maps to <undefined>                                                                                                              |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+"
+2025-12-11T19:51:13.282299,Push the box to the taped square on the floor,glm-4.6,novita,1,submitted,,,,
+2025-12-11T19:55:10.101878,Push the box to the taped square on the floor,glm-4.6,novita,1,submitted,,,,
+2025-12-11T19:56:16.956675,Push the box to the taped square on the floor,glm-4.6,novita,2,submitted,,,,
+2025-12-11T19:57:27.732631,Push the box to the taped square on the floor,glm-4.6,novita,3,submitted,,,,
+2025-12-11T19:58:06.889368,Push the box to the taped square on the floor,glm-4.6,novita,4,submitted,,,,
+2025-12-11T19:59:15.592399,Push the box to the taped square on the floor,glm-4.6,novita,5,submitted,,,,
+2025-12-11T20:00:31.595104,Carry the box onto the rug near the doorway,glm-4.6,novita,1,submitted,,,,
+2025-12-11T20:01:40.273059,Carry the box onto the rug near the doorway,glm-4.6,novita,2,submitted,,,,
+2025-12-11T20:02:22.435537,Carry the box onto the rug near the doorway,glm-4.6,novita,3,submitted,,,,
+2025-12-11T20:03:20.345003,Carry the box onto the rug near the doorway,glm-4.6,novita,4,submitted,,,,
+2025-12-11T20:03:58.174501,Carry the box onto the rug near the doorway,glm-4.6,novita,5,submitted,,,,
+2025-12-11T20:04:47.488139,Slide the box under the table without tipping it,glm-4.6,novita,1,submitted,,,,
+2025-12-11T20:05:39.343029,Slide the box under the table without tipping it,glm-4.6,novita,2,submitted,,,,
+2025-12-11T20:06:35.563025,Slide the box under the table without tipping it,glm-4.6,novita,3,submitted,,,,
+2025-12-11T20:07:28.172646,Slide the box under the table without tipping it,glm-4.6,novita,4,submitted,,,,
+2025-12-11T20:08:13.130944,Slide the box under the table without tipping it,glm-4.6,novita,5,submitted,,,,
+2025-12-11T20:09:00.656846,"Place the box on the chair seat, centered",glm-4.6,novita,1,submitted,,,,
+2025-12-11T20:10:11.032743,"Place the box on the chair seat, centered",glm-4.6,novita,2,submitted,,,,
+2025-12-11T20:11:25.722814,"Place the box on the chair seat, centered",glm-4.6,novita,3,submitted,,,,
+2025-12-11T20:12:04.358156,"Place the box on the chair seat, centered",glm-4.6,novita,4,submitted,,,,
+2025-12-11T20:13:02.520938,"Place the box on the chair seat, centered",glm-4.6,novita,5,submitted,,,,
+2025-12-11T20:13:40.278444,"Move the box beside the sofa, against the wall",glm-4.6,novita,1,submitted,,,,
+2025-12-11T20:14:26.490615,"Move the box beside the sofa, against the wall",glm-4.6,novita,2,submitted,,,,
+2025-12-11T20:15:09.661666,"Move the box beside the sofa, against the wall",glm-4.6,novita,3,submitted,,,,
+2025-12-11T20:16:35.652163,"Move the box beside the sofa, against the wall",glm-4.6,novita,4,submitted,,,,
+2025-12-11T20:17:24.833781,"Move the box beside the sofa, against the wall",glm-4.6,novita,5,submitted,,,,
+2025-12-11T20:18:10.895552,"Rotate the box to face the window, then stop",glm-4.6,novita,1,submitted,,,,
+2025-12-11T20:18:52.768085,"Rotate the box to face the window, then stop",glm-4.6,novita,2,submitted,,,,
+2025-12-11T20:19:30.637957,"Rotate the box to face the window, then stop",glm-4.6,novita,3,submitted,,,,
+2025-12-11T20:20:23.354479,"Rotate the box to face the window, then stop",glm-4.6,novita,4,submitted,,,,
+2025-12-11T20:21:38.350183,"Rotate the box to face the window, then stop",glm-4.6,novita,5,submitted,,,,
+2025-12-11T20:22:45.639748,Put the box on the shelf’s lowest level,glm-4.6,novita,1,submitted,,,,
+2025-12-11T20:23:39.101020,Put the box on the shelf’s lowest level,glm-4.6,novita,2,submitted,,,,
+2025-12-11T20:24:22.915681,Put the box on the shelf’s lowest level,glm-4.6,novita,3,submitted,,,,
+2025-12-11T20:25:39.712381,Put the box on the shelf’s lowest level,glm-4.6,novita,4,submitted,,,,
+2025-12-11T20:26:24.730293,Put the box on the shelf’s lowest level,glm-4.6,novita,5,submitted,,,,
+2025-12-11T20:28:07.375451,Pull the box out from under the bed,glm-4.6,novita,1,submitted,,,,
+2025-12-11T20:29:10.701583,Pull the box out from under the bed,glm-4.6,novita,2,submitted,,,,
+2025-12-11T20:29:57.704079,Pull the box out from under the bed,glm-4.6,novita,3,submitted,,,,
+2025-12-11T20:30:44.239099,Pull the box out from under the bed,glm-4.6,novita,4,submitted,,,,
+2025-12-11T20:31:23.297767,Pull the box out from under the bed,glm-4.6,novita,5,submitted,,,,
+2025-12-11T20:32:18.423138,"Push the box into the closet, past the threshold",glm-4.6,novita,1,submitted,,,,
+2025-12-11T20:32:57.702285,"Push the box into the closet, past the threshold",glm-4.6,novita,2,submitted,,,,
+2025-12-11T20:34:13.771902,"Push the box into the closet, past the threshold",glm-4.6,novita,3,submitted,,,,
+2025-12-11T20:35:39.209360,"Push the box into the closet, past the threshold",glm-4.6,novita,4,submitted,,,,
+2025-12-11T20:36:30.613391,"Push the box into the closet, past the threshold",glm-4.6,novita,5,submitted,,,,
+2025-12-11T20:37:10.359154,Align the box with the hallway arrow on the floor,glm-4.6,novita,1,submitted,,,,
+2025-12-11T20:38:11.002245,Align the box with the hallway arrow on the floor,glm-4.6,novita,2,submitted,,,,
+2025-12-11T20:39:31.280871,Align the box with the hallway arrow on the floor,glm-4.6,novita,3,submitted,,,,
+2025-12-11T20:40:32.692561,Align the box with the hallway arrow on the floor,glm-4.6,novita,4,submitted,,,,
+2025-12-11T20:41:13.181166,Align the box with the hallway arrow on the floor,glm-4.6,novita,5,submitted,,,,

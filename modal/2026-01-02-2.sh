@@ -1,0 +1,10 @@
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "close laptop lid" --target-object "Laptop" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "angle laptop screen" --target-object "Laptop" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "rotate laptop screen" --target-object "Laptop" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "open refrigerator door" --target-object "Refrigerator" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "close refrigerator door" --target-object "Refrigerator" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "open freezer door" --target-object "Refrigerator" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "close freezer door" --target-object "Refrigerator" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "open microwave door" --target-object "Microwave" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "close microwave door" --target-object "Microwave" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "turn microwave knob" --target-object "Microwave" --generate-task
