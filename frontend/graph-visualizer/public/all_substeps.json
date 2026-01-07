@@ -1,367 +1,331 @@
 {
   "data": [
     {
-      "dirname": "adjust_chair_height_Chair_100426_2026-01-03-01-51-48",
+      "dirname": "arrange_place_settings_on_the_table_in_fixed_positions_Table_100426_2026-01-07-01-40-44",
       "substeps": [
-        "grasp the height adjustment lever",
-        "operate the lever to adjust the height"
+        "grasp the first lid of the table",
+        "open the first lid of the table",
+        "grasp the second lid of the table",
+        "open the second lid of the table",
+        "place the plate at its target location",
+        "place the fork at its target location",
+        "place the knife at its target location",
+        "place the glass at its target location"
       ]
     },
     {
-      "dirname": "adjust_faucet_temperature_Faucet_100426_2026-01-03-01-45-45",
+      "dirname": "carry_the_chair_to_a_marked_position_and_set_it_down_Chair_100426_2026-01-07-01-50-24",
+      "substeps": [
+        "(Optional) close the first rotational lid of the chair for stable lifting",
+        "(Optional) close the second rotational lid of the chair for stable lifting",
+        "grasp the main body of the chair to pick it up",
+        "carry the chair to the marked position",
+        "release the grasp to set the chair down"
+      ]
+    },
+    {
+      "dirname": "clear_and_wipe_the_table_surface_Table_100426_2026-01-07-00-55-47",
       "substeps": []
     },
     {
-      "dirname": "angle_laptop_screen_Laptop_100426_2026-01-03-01-30-56",
-      "substeps": []
-    },
-    {
-      "dirname": "close_cabinet_door_StorageFurniture_100426_2026-01-03-01-31-04",
+      "dirname": "clear_the_table_by_moving_items_to_a_bin_Table_100426_2026-01-07-01-19-20",
       "substeps": [
-        "grasp the cabinet door",
-        "close the cabinet door",
-        "release grasp of the cabinet door"
+        "open the first lid of the table",
+        "grasp the second lid of the table",
+        "open the second lid of the table",
+        "grasp the fork",
+        "move the fork to the bin",
+        "release the fork",
+        "grasp the toy block",
+        "move the toy block to the bin",
+        "release the toy block"
       ]
     },
     {
-      "dirname": "close_dishwasher_door_Dishwasher_100426_2026-01-03-01-39-07",
+      "dirname": "close_the_laptop_pick_it_up_and_place_it_into_a_bag_Laptop_100426_2026-01-07-01-03-39",
       "substeps": [
-        "grasp the first part of the dishwasher door",
-        "close the first part of the dishwasher door",
-        "grasp the second part of the dishwasher door",
-        "close the second part of the dishwasher door"
+        "close the first lid of the laptop",
+        "grasp the second lid of the laptop",
+        "close the second lid of the laptop",
+        "pick up the closed laptop",
+        "place the laptop into the bag"
       ]
     },
     {
-      "dirname": "close_door_Door_100426_2026-01-03-01-22-41",
-      "substeps": [
-        "grasp the first lid of the box",
-        "close the first lid of the box",
-        "grasp the second lid of the box",
-        "close the second lid of the box"
-      ]
-    },
-    {
-      "dirname": "close_freezer_door_Refrigerator_100426_2026-01-03-01-50-34",
-      "substeps": [
-        "grasp the freezer door",
-        "close the freezer door"
-      ]
-    },
-    {
-      "dirname": "close_laptop_lid_Laptop_100426_2026-01-03-01-22-41",
-      "substeps": []
-    },
-    {
-      "dirname": "close_microwave_door_Microwave_100426_2026-01-03-02-06-08",
-      "substeps": [
-        "grasp the microwave door",
-        "push the door closed"
-      ]
-    },
-    {
-      "dirname": "close_oven_door_Oven_100426_2026-01-03-02-06-01",
-      "substeps": [
-        "grasp the oven door",
-        "close the oven door"
-      ]
-    },
-    {
-      "dirname": "close_refrigerator_door_Refrigerator_100426_2026-01-03-01-45-45",
-      "substeps": []
-    },
-    {
-      "dirname": "close_safe_door_Safe_100426_2026-01-03-02-26-33",
-      "substeps": [
-        "grasp the lid of the safe",
-        "close the lid of the safe"
-      ]
-    },
-    {
-      "dirname": "close_toilet_lid_Toilet_100426_2026-01-03-01-29-47",
+      "dirname": "close_the_toilet_lid_and_flush_the_toilet_Toilet_100426_2026-01-07-01-36-07",
       "substeps": [
         "grasp the toilet lid",
-        "push the toilet lid down to close it"
+        "close the toilet lid and flush the toilet",
+        "grasp the toilet seat",
+        "close the toilet seat"
       ]
     },
     {
-      "dirname": "close_washing_machine_door_WashingMachine_100426_2026-01-03-01-53-53",
+      "dirname": "collect_papers_from_the_table_stack_them_and_place_them_in_a_tray_Table_100426_2026-01-07-02-05-53",
       "substeps": [
-        "grasp the washing machine door",
-        "close the washing machine door",
-        "release the grasp on the door"
+        "grasp the first lid of the table",
+        "open the first lid of the table",
+        "grasp the second lid of the table",
+        "open the second lid of the table",
+        "grasp the stack of papers",
+        "move the papers into the tray",
+        "release the papers"
       ]
     },
     {
-      "dirname": "close_window_Window_100426_2026-01-03-02-02-28",
+      "dirname": "cut_along_a_printed_line_and_place_the_cutout_in_a_tray_Scissors_100426_2026-01-07-00-58-57",
       "substeps": [
-        "grasp the first panel of the window",
-        "close the first panel of the window",
-        "grasp the second panel of the window",
-        "close the second panel of the window"
+        "grasp the scissors handle",
+        "cut the paper along the line",
+        "release the scissors",
+        "grasp the resulting cutout",
+        "place the cutout into the tray"
       ]
     },
     {
-      "dirname": "flush_the_toilet_Toilet_100426_2026-01-03-01-34-53",
+      "dirname": "fill_the_kettle_with_water_and_place_it_on_its_base_Kettle_100426_2026-01-07-01-33-15",
       "substeps": [
-        "grasp the flush handle",
-        "press the flush handle",
-        "release the flush handle"
+        "grasp the first lid of the kettle",
+        "open the first lid of the kettle",
+        "grasp the second lid of the kettle",
+        "open the second lid of the kettle",
+        "grasp the kettle's main body",
+        "move the kettle under the faucet to fill it with water",
+        "move the kettle back to its original position",
+        "grasp the first lid of the kettle to close it",
+        "close the first lid of the kettle",
+        "grasp the second lid of the kettle to close it",
+        "close the second lid of the kettle",
+        "grasp the kettle's main body again",
+        "place the kettle onto its base"
       ]
     },
     {
-      "dirname": "fold_chair_Chair_100426_2026-01-03-01-45-19",
+      "dirname": "heat_a_container_in_the_microwave_for_a_set_time_Microwave_100426_2026-01-07-00-57-31",
       "substeps": [
-        "grasp the first hinged component of the chair",
-        "fold the first hinged component",
-        "grasp the second hinged component of the chair",
-        "fold the second hinged component"
+        "grasp the container",
+        "move the container near the microwave opening",
+        "open the microwave door",
+        "open the microwave door",
+        "put the container inside the microwave",
+        "release the grasp of the container",
+        "close the microwave door",
+        "close the microwave door",
+        "set the microwave timer",
+        "set the microwave timer",
+        "grasp the container from inside the microwave",
+        "move the heated container out of the microwave and place it on the table"
       ]
     },
     {
-      "dirname": "open_cabinet_door_StorageFurniture_100426_2026-01-03-01-28-26",
-      "substeps": [
-        "grasp the first cabinet door",
-        "open the first cabinet door"
-      ]
-    },
-    {
-      "dirname": "open_dishwasher_door_Dishwasher_100426_2026-01-03-01-34-59",
-      "substeps": [
-        "grasp the dishwasher door",
-        "open the dishwasher door"
-      ]
-    },
-    {
-      "dirname": "open_door_Door_100426_2026-01-03-01-15-38",
-      "substeps": [
-        "grasp the first lid of the door",
-        "open the first lid of the door"
-      ]
-    },
-    {
-      "dirname": "open_freezer_door_Refrigerator_100426_2026-01-03-01-48-07",
-      "substeps": []
-    },
-    {
-      "dirname": "open_laptop_lid_Laptop_100426_2026-01-03-02-24-46",
-      "substeps": [
-        "grasp the laptop lid",
-        "open the laptop lid"
-      ]
-    },
-    {
-      "dirname": "open_microwave_door_Microwave_100426_2026-01-03-01-56-46",
-      "substeps": [
-        "grasp the microwave handle",
-        "pull the handle to open the door"
-      ]
-    },
-    {
-      "dirname": "open_oven_door_Oven_100426_2026-01-03-02-00-18",
-      "substeps": [
-        "grasp the oven door",
-        "open the oven door"
-      ]
-    },
-    {
-      "dirname": "open_refrigerator_door_Refrigerator_100426_2026-01-03-01-43-18",
-      "substeps": []
-    },
-    {
-      "dirname": "open_safe_door_Safe_100426_2026-01-03-02-20-26",
-      "substeps": [
-        "grasp the first lid of the safe",
-        "open the first lid of the safe",
-        "grasp the second lid of the safe",
-        "open the second lid of the safe"
-      ]
-    },
-    {
-      "dirname": "open_toilet_lid_Toilet_100426_2026-01-03-01-27-49",
-      "substeps": []
-    },
-    {
-      "dirname": "open_washing_machine_door_WashingMachine_100426_2026-01-03-01-48-05",
-      "substeps": [
-        "grasp the washing machine door",
-        "open the washing machine door"
-      ]
-    },
-    {
-      "dirname": "open_window_Window_100426_2026-01-03-01-54-19",
-      "substeps": [
-        "grasp the first lid of the window",
-        "open the first lid of the window",
-        "grasp the second lid of the window",
-        "open the second lid of the window"
-      ]
-    },
-    {
-      "dirname": "open_window_halfway_Window_100426_2026-01-03-02-09-45",
-      "substeps": []
-    },
-    {
-      "dirname": "partially_close_window_Window_100426_2026-01-03-02-16-29",
-      "substeps": [
-        "grasp one of the window lids",
-        "partially close the lid",
-        "release the window lid"
-      ]
-    },
-    {
-      "dirname": "partially_open_door_Door_100426_2026-01-03-01-23-54",
-      "substeps": [
-        "grasp the first lid of the box",
-        "partially open the lid"
-      ]
-    },
-    {
-      "dirname": "press_dishwasher_start_button_Dishwasher_100426_2026-01-03-01-52-39",
-      "substeps": []
-    },
-    {
-      "dirname": "press_microwave_button_Microwave_100426_2026-01-03-01-27-32",
-      "substeps": [
-        "press the button on the microwave"
-      ]
-    },
-    {
-      "dirname": "press_washing_start_button_WashingMachine_100426_2026-01-03-02-05-36",
-      "substeps": []
-    },
-    {
-      "dirname": "pull_dishwasher_rack_out_Dishwasher_100426_2026-01-03-01-41-53",
-      "substeps": [
-        "grasp the dishwasher door",
-        "open the dishwasher door",
-        "grasp the dishwasher rack",
-        "pull the rack out"
-      ]
-    },
-    {
-      "dirname": "pull_door_open_Door_100426_2026-01-03-01-47-16",
-      "substeps": [
-        "grasp the door",
-        "pull the door open"
-      ]
-    },
-    {
-      "dirname": "pull_drawer_out_StorageFurniture_100426_2026-01-03-01-36-37",
-      "substeps": []
-    },
-    {
-      "dirname": "push_dishwasher_rack_in_Dishwasher_100426_2026-01-03-01-46-15",
+      "dirname": "load_a_dish_into_the_dishwasher_and_start_a_cycle_Dishwasher_100426_2026-01-07-00-54-01",
       "substeps": [
         "grasp the first lid of the dishwasher",
-        "close the first lid of the dishwasher",
+        "open the first lid of the dishwasher",
         "grasp the second lid of the dishwasher",
+        "open the second lid of the dishwasher",
+        "grasp the dish",
+        "put the dish into the dishwasher",
+        "grasp the first lid of the dishwasher to close it",
+        "close the first lid of the dishwasher",
+        "grasp the second lid of the dishwasher to close it",
         "close the second lid of the dishwasher"
       ]
     },
     {
-      "dirname": "push_door_closed_Door_100426_2026-01-03-01-39-43",
+      "dirname": "load_laundry_into_the_washing_machine_add_detergent_and_start_washing_WashingMachine_100426_2026-01-07-00-46-35",
       "substeps": [
-        "grasp the first lid of the door",
-        "push the first lid closed",
-        "grasp the second lid of the door",
-        "push the second lid closed"
+        "grasp the main wash lid",
+        "open the main wash lid",
+        "grasp the laundry item",
+        "put the laundry item into the washing machine",
+        "release the laundry item",
+        "grasp the detergent dispenser lid",
+        "open the detergent dispenser lid",
+        "grasp the detergent bottle",
+        "add detergent",
+        "release the detergent bottle",
+        "grasp the detergent dispenser lid",
+        "close the detergent dispenser lid",
+        "grasp the main wash lid",
+        "close the main wash lid"
       ]
     },
     {
-      "dirname": "push_drawer_in_StorageFurniture_100426_2026-01-03-01-37-41",
-      "substeps": []
-    },
-    {
-      "dirname": "rotate_chair_Chair_100426_2026-01-03-02-01-17",
+      "dirname": "move_objects_to_one_side_of_the_table_then_wipe_the_cleared_area_Table_100426_2026-01-07-01-51-37",
       "substeps": [
-        "grasp the first rotating part of the chair",
-        "rotate the first part of the chair",
-        "grasp the second rotating part of the chair",
-        "rotate the second part of the chair"
+        "grasp the first lid of the table",
+        "open the first lid of the table",
+        "grasp the second lid of the table",
+        "open the second lid of the table",
+        "grasp the book",
+        "move the book to one side of the table",
+        "grasp the fork",
+        "move the fork to one side of the table",
+        "grasp the sponge",
+        "wipe the cleared area with the sponge",
+        "grasp the first lid of the table again",
+        "close the first lid of the table",
+        "grasp the second lid of the table again",
+        "close the second lid of the table"
       ]
     },
     {
-      "dirname": "rotate_clock_hands_Clock_100426_2026-01-03-02-09-06",
+      "dirname": "move_the_chair_from_the_table_to_the_wall_Chair_100426_2026-01-07-01-35-59",
       "substeps": [
-        "grasp the first clock hand",
-        "rotate the first clock hand to a desired angle",
-        "grasp the second clock hand",
-        "rotate the second clock hand to a desired angle"
+        "grasp the chair",
+        "move the chair to the wall",
+        "release the chair"
       ]
     },
     {
-      "dirname": "rotate_laptop_screen_Laptop_100426_2026-01-03-01-37-26",
+      "dirname": "move_through_the_doorway_and_close_the_door_behind_Door_100426_2026-01-07-01-42-59",
       "substeps": [
-        "grasp the laptop screen lid",
-        "rotate the laptop screen to a target angle"
+        "grasp the door",
+        "open the door",
+        "move through the doorway",
+        "grasp the door again",
+        "close the door"
       ]
     },
     {
-      "dirname": "set_clock_time_Clock_100426_2026-01-03-02-14-58",
+      "dirname": "organize_items_into_the_correct_compartments_and_close_the_storage_furniture_StorageFurniture_100426_2026-01-07-00-53-08",
       "substeps": [
-        "grasp the first control (hour knob)",
-        "rotate the first control to the target position (hour)",
-        "grasp the second control (minute knob)",
-        "rotate the second control to the target position (minute)"
+        "grasp the first lid of the storage furniture",
+        "open the first lid of the storage furniture",
+        "grasp the item",
+        "put the item into the opened compartment",
+        "grasp the first lid of the storage furniture again",
+        "close the first lid"
       ]
     },
     {
-      "dirname": "turn_microwave_knob_Microwave_100426_2026-01-03-02-11-19",
+      "dirname": "place_a_chair_next_to_another_chair_with_equal_spacing_Chair_100426_2026-01-07-01-54-17",
       "substeps": [
-        "grasp the microwave knob",
-        "turn the microwave knob"
+        "grasp the first lid of the foldable chair",
+        "unfold the first lid of the chair",
+        "release the first lid",
+        "grasp the second lid of the foldable chair",
+        "unfold the second lid of the chair",
+        "release the second lid",
+        "grasp the main body of the unfolded chair",
+        "place the chair next to the target chair"
       ]
     },
     {
-      "dirname": "turn_off_faucet_Faucet_100426_2026-01-03-01-40-20",
+      "dirname": "place_a_tray_in_the_oven_and_close_the_door_Oven_100426_2026-01-07-01-39-45",
       "substeps": [
-        "grasp the first faucet handle",
-        "turn the first handle to the off position",
-        "grasp the second faucet handle",
-        "turn the second handle to the off position"
+        "grasp the oven door",
+        "open the oven door",
+        "grasp the tray",
+        "place the tray inside the oven",
+        "grasp the oven door again",
+        "close the oven door"
       ]
     },
     {
-      "dirname": "turn_on_faucet_Faucet_100426_2026-01-03-01-37-52",
-      "substeps": []
-    },
-    {
-      "dirname": "turn_oven_function_knob_Oven_100426_2026-01-03-02-20-56",
+      "dirname": "pull_the_chair_out_and_align_it_with_the_table_Chair_100426_2026-01-07-01-19-53",
       "substeps": [
-        "grasp the function knob",
-        "turn the function knob to the 'bake' setting"
+        "grasp the chair",
+        "pull the chair out and align it with the table"
       ]
     },
     {
-      "dirname": "turn_oven_temperature_knob_Oven_100426_2026-01-03-02-13-50",
+      "dirname": "push_the_chair_under_the_table_and_center_it_Chair_100426_2026-01-07-01-30-57",
       "substeps": [
-        "grasp the temperature knob",
-        "turn the temperature knob to a desired setting",
-        "release the knob"
-      ]
-    },
-    {
-      "dirname": "turn_safe_knob_Safe_100426_2026-01-03-02-33-21",
-      "substeps": [
-        "grasp the safe knob",
-        "turn the knob"
-      ]
-    },
-    {
-      "dirname": "turn_washing_cycle_knob_WashingMachine_100426_2026-01-03-02-01-21",
-      "substeps": [
-        "grasp the washing cycle knob",
-        "turn the knob to the desired washing cycle"
-      ]
-    },
-    {
-      "dirname": "unfold_chair_Chair_100426_2026-01-03-01-49-35",
-      "substeps": [
-        "grasp the first foldable part of the chair",
+        "grasp the first folding part of the chair (link_0)",
         "unfold the first part of the chair",
-        "grasp the second foldable part of the chair",
-        "unfold the second part of the chair"
+        "grasp the second folding part of the chair (link_1)",
+        "unfold the second part of the chair",
+        "grasp the main body of the unfolded chair",
+        "push the chair under the table and center it"
+      ]
+    },
+    {
+      "dirname": "put_a_drink_into_the_refrigerator_and_close_the_door_Refrigerator_100426_2026-01-07-00-45-55",
+      "substeps": [
+        "grasp the refrigerator door",
+        "open the refrigerator door",
+        "grasp the drink",
+        "move the drink into the refrigerator",
+        "release the drink",
+        "grasp the refrigerator door again",
+        "close the refrigerator door"
+      ]
+    },
+    {
+      "dirname": "rotate_the_chair_to_face_the_table_and_slide_it_forward_Chair_100426_2026-01-07-01-41-07",
+      "substeps": []
+    },
+    {
+      "dirname": "set_a_cup_on_the_table_then_place_a_plate_beside_it_Table_100426_2026-01-07-01-59-34",
+      "substeps": [
+        "grasp the first lid of the table",
+        "close the first lid of the table",
+        "grasp the second lid of the table",
+        "close the second lid of the table",
+        "grasp the cup",
+        "put the cup on the table",
+        "grasp the plate",
+        "put the plate beside the cup"
+      ]
+    },
+    {
+      "dirname": "set_the_chair_at_the_dining_table_Chair_100426_2026-01-07-00-45-56",
+      "substeps": [
+        "grasp the first lid of the chair",
+        "open the first lid of the chair",
+        "grasp the second lid of the chair",
+        "open the second lid of the chair",
+        "grasp the body of the unfolded chair",
+        "move the chair to a position at the dining table"
+      ]
+    },
+    {
+      "dirname": "staple_a_small_stack_of_papers_and_return_the_stapler_Stapler_100426_2026-01-07-00-47-10",
+      "substeps": [
+        "grasp the body of the stapler",
+        "move the stapler over the papers and staple them",
+        "return the stapler to its original position",
+        "release the stapler"
+      ]
+    },
+    {
+      "dirname": "turn_on_the_fan_and_aim_it_toward_a_target_area_Fan_100426_2026-01-07-00-55-20",
+      "substeps": [
+        "grasp the fan's power knob",
+        "turn on the fan",
+        "release the power knob",
+        "grasp the fan head for aiming",
+        "aim the fan at the target plant",
+        "release the fan head"
+      ]
+    },
+    {
+      "dirname": "turn_on_the_lamp_and_reposition_it_on_a_table_Lamp_100426_2026-01-07-00-47-44",
+      "substeps": [
+        "grasp the first rotating part of the lamp",
+        "rotate the first part to turn on the lamp",
+        "grasp the second rotating part of the lamp",
+        "rotate the second part to turn on the lamp",
+        "grasp the main body of the lamp for repositioning",
+        "reposition the lamp to a desired location on the table"
+      ]
+    },
+    {
+      "dirname": "wipe_the_table_surface_using_a_cloth_and_return_the_cloth_Table_100426_2026-01-07-01-26-47",
+      "substeps": [
+        "grasp the first table leaf",
+        "open the first table leaf",
+        "grasp the second table leaf",
+        "open the second table leaf",
+        "grasp the cloth",
+        "wipe the table by moving the cloth to the first corner",
+        "wipe the table by moving the cloth to the second corner",
+        "wipe the table by moving the cloth to the third corner",
+        "wipe the table by moving the cloth to the fourth corner",
+        "return the cloth to its initial position",
+        "release the cloth"
       ]
     }
   ]

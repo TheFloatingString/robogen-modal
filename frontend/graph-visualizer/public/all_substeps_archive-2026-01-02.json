@@ -1,0 +1,368 @@
+{
+  "data": [
+    {
+      "dirname": "adjust_chair_height_Chair_100426_2026-01-03-01-51-48",
+      "substeps": [
+        "grasp the height adjustment lever",
+        "operate the lever to adjust the height"
+      ]
+    },
+    {
+      "dirname": "adjust_faucet_temperature_Faucet_100426_2026-01-03-01-45-45",
+      "substeps": []
+    },
+    {
+      "dirname": "angle_laptop_screen_Laptop_100426_2026-01-03-01-30-56",
+      "substeps": []
+    },
+    {
+      "dirname": "close_cabinet_door_StorageFurniture_100426_2026-01-03-01-31-04",
+      "substeps": [
+        "grasp the cabinet door",
+        "close the cabinet door",
+        "release grasp of the cabinet door"
+      ]
+    },
+    {
+      "dirname": "close_dishwasher_door_Dishwasher_100426_2026-01-03-01-39-07",
+      "substeps": [
+        "grasp the first part of the dishwasher door",
+        "close the first part of the dishwasher door",
+        "grasp the second part of the dishwasher door",
+        "close the second part of the dishwasher door"
+      ]
+    },
+    {
+      "dirname": "close_door_Door_100426_2026-01-03-01-22-41",
+      "substeps": [
+        "grasp the first lid of the box",
+        "close the first lid of the box",
+        "grasp the second lid of the box",
+        "close the second lid of the box"
+      ]
+    },
+    {
+      "dirname": "close_freezer_door_Refrigerator_100426_2026-01-03-01-50-34",
+      "substeps": [
+        "grasp the freezer door",
+        "close the freezer door"
+      ]
+    },
+    {
+      "dirname": "close_laptop_lid_Laptop_100426_2026-01-03-01-22-41",
+      "substeps": []
+    },
+    {
+      "dirname": "close_microwave_door_Microwave_100426_2026-01-03-02-06-08",
+      "substeps": [
+        "grasp the microwave door",
+        "push the door closed"
+      ]
+    },
+    {
+      "dirname": "close_oven_door_Oven_100426_2026-01-03-02-06-01",
+      "substeps": [
+        "grasp the oven door",
+        "close the oven door"
+      ]
+    },
+    {
+      "dirname": "close_refrigerator_door_Refrigerator_100426_2026-01-03-01-45-45",
+      "substeps": []
+    },
+    {
+      "dirname": "close_safe_door_Safe_100426_2026-01-03-02-26-33",
+      "substeps": [
+        "grasp the lid of the safe",
+        "close the lid of the safe"
+      ]
+    },
+    {
+      "dirname": "close_toilet_lid_Toilet_100426_2026-01-03-01-29-47",
+      "substeps": [
+        "grasp the toilet lid",
+        "push the toilet lid down to close it"
+      ]
+    },
+    {
+      "dirname": "close_washing_machine_door_WashingMachine_100426_2026-01-03-01-53-53",
+      "substeps": [
+        "grasp the washing machine door",
+        "close the washing machine door",
+        "release the grasp on the door"
+      ]
+    },
+    {
+      "dirname": "close_window_Window_100426_2026-01-03-02-02-28",
+      "substeps": [
+        "grasp the first panel of the window",
+        "close the first panel of the window",
+        "grasp the second panel of the window",
+        "close the second panel of the window"
+      ]
+    },
+    {
+      "dirname": "flush_the_toilet_Toilet_100426_2026-01-03-01-34-53",
+      "substeps": [
+        "grasp the flush handle",
+        "press the flush handle",
+        "release the flush handle"
+      ]
+    },
+    {
+      "dirname": "fold_chair_Chair_100426_2026-01-03-01-45-19",
+      "substeps": [
+        "grasp the first hinged component of the chair",
+        "fold the first hinged component",
+        "grasp the second hinged component of the chair",
+        "fold the second hinged component"
+      ]
+    },
+    {
+      "dirname": "open_cabinet_door_StorageFurniture_100426_2026-01-03-01-28-26",
+      "substeps": [
+        "grasp the first cabinet door",
+        "open the first cabinet door"
+      ]
+    },
+    {
+      "dirname": "open_dishwasher_door_Dishwasher_100426_2026-01-03-01-34-59",
+      "substeps": [
+        "grasp the dishwasher door",
+        "open the dishwasher door"
+      ]
+    },
+    {
+      "dirname": "open_door_Door_100426_2026-01-03-01-15-38",
+      "substeps": [
+        "grasp the first lid of the door",
+        "open the first lid of the door"
+      ]
+    },
+    {
+      "dirname": "open_freezer_door_Refrigerator_100426_2026-01-03-01-48-07",
+      "substeps": []
+    },
+    {
+      "dirname": "open_laptop_lid_Laptop_100426_2026-01-03-02-24-46",
+      "substeps": [
+        "grasp the laptop lid",
+        "open the laptop lid"
+      ]
+    },
+    {
+      "dirname": "open_microwave_door_Microwave_100426_2026-01-03-01-56-46",
+      "substeps": [
+        "grasp the microwave handle",
+        "pull the handle to open the door"
+      ]
+    },
+    {
+      "dirname": "open_oven_door_Oven_100426_2026-01-03-02-00-18",
+      "substeps": [
+        "grasp the oven door",
+        "open the oven door"
+      ]
+    },
+    {
+      "dirname": "open_refrigerator_door_Refrigerator_100426_2026-01-03-01-43-18",
+      "substeps": []
+    },
+    {
+      "dirname": "open_safe_door_Safe_100426_2026-01-03-02-20-26",
+      "substeps": [
+        "grasp the first lid of the safe",
+        "open the first lid of the safe",
+        "grasp the second lid of the safe",
+        "open the second lid of the safe"
+      ]
+    },
+    {
+      "dirname": "open_toilet_lid_Toilet_100426_2026-01-03-01-27-49",
+      "substeps": []
+    },
+    {
+      "dirname": "open_washing_machine_door_WashingMachine_100426_2026-01-03-01-48-05",
+      "substeps": [
+        "grasp the washing machine door",
+        "open the washing machine door"
+      ]
+    },
+    {
+      "dirname": "open_window_Window_100426_2026-01-03-01-54-19",
+      "substeps": [
+        "grasp the first lid of the window",
+        "open the first lid of the window",
+        "grasp the second lid of the window",
+        "open the second lid of the window"
+      ]
+    },
+    {
+      "dirname": "open_window_halfway_Window_100426_2026-01-03-02-09-45",
+      "substeps": []
+    },
+    {
+      "dirname": "partially_close_window_Window_100426_2026-01-03-02-16-29",
+      "substeps": [
+        "grasp one of the window lids",
+        "partially close the lid",
+        "release the window lid"
+      ]
+    },
+    {
+      "dirname": "partially_open_door_Door_100426_2026-01-03-01-23-54",
+      "substeps": [
+        "grasp the first lid of the box",
+        "partially open the lid"
+      ]
+    },
+    {
+      "dirname": "press_dishwasher_start_button_Dishwasher_100426_2026-01-03-01-52-39",
+      "substeps": []
+    },
+    {
+      "dirname": "press_microwave_button_Microwave_100426_2026-01-03-01-27-32",
+      "substeps": [
+        "press the button on the microwave"
+      ]
+    },
+    {
+      "dirname": "press_washing_start_button_WashingMachine_100426_2026-01-03-02-05-36",
+      "substeps": []
+    },
+    {
+      "dirname": "pull_dishwasher_rack_out_Dishwasher_100426_2026-01-03-01-41-53",
+      "substeps": [
+        "grasp the dishwasher door",
+        "open the dishwasher door",
+        "grasp the dishwasher rack",
+        "pull the rack out"
+      ]
+    },
+    {
+      "dirname": "pull_door_open_Door_100426_2026-01-03-01-47-16",
+      "substeps": [
+        "grasp the door",
+        "pull the door open"
+      ]
+    },
+    {
+      "dirname": "pull_drawer_out_StorageFurniture_100426_2026-01-03-01-36-37",
+      "substeps": []
+    },
+    {
+      "dirname": "push_dishwasher_rack_in_Dishwasher_100426_2026-01-03-01-46-15",
+      "substeps": [
+        "grasp the first lid of the dishwasher",
+        "close the first lid of the dishwasher",
+        "grasp the second lid of the dishwasher",
+        "close the second lid of the dishwasher"
+      ]
+    },
+    {
+      "dirname": "push_door_closed_Door_100426_2026-01-03-01-39-43",
+      "substeps": [
+        "grasp the first lid of the door",
+        "push the first lid closed",
+        "grasp the second lid of the door",
+        "push the second lid closed"
+      ]
+    },
+    {
+      "dirname": "push_drawer_in_StorageFurniture_100426_2026-01-03-01-37-41",
+      "substeps": []
+    },
+    {
+      "dirname": "rotate_chair_Chair_100426_2026-01-03-02-01-17",
+      "substeps": [
+        "grasp the first rotating part of the chair",
+        "rotate the first part of the chair",
+        "grasp the second rotating part of the chair",
+        "rotate the second part of the chair"
+      ]
+    },
+    {
+      "dirname": "rotate_clock_hands_Clock_100426_2026-01-03-02-09-06",
+      "substeps": [
+        "grasp the first clock hand",
+        "rotate the first clock hand to a desired angle",
+        "grasp the second clock hand",
+        "rotate the second clock hand to a desired angle"
+      ]
+    },
+    {
+      "dirname": "rotate_laptop_screen_Laptop_100426_2026-01-03-01-37-26",
+      "substeps": [
+        "grasp the laptop screen lid",
+        "rotate the laptop screen to a target angle"
+      ]
+    },
+    {
+      "dirname": "set_clock_time_Clock_100426_2026-01-03-02-14-58",
+      "substeps": [
+        "grasp the first control (hour knob)",
+        "rotate the first control to the target position (hour)",
+        "grasp the second control (minute knob)",
+        "rotate the second control to the target position (minute)"
+      ]
+    },
+    {
+      "dirname": "turn_microwave_knob_Microwave_100426_2026-01-03-02-11-19",
+      "substeps": [
+        "grasp the microwave knob",
+        "turn the microwave knob"
+      ]
+    },
+    {
+      "dirname": "turn_off_faucet_Faucet_100426_2026-01-03-01-40-20",
+      "substeps": [
+        "grasp the first faucet handle",
+        "turn the first handle to the off position",
+        "grasp the second faucet handle",
+        "turn the second handle to the off position"
+      ]
+    },
+    {
+      "dirname": "turn_on_faucet_Faucet_100426_2026-01-03-01-37-52",
+      "substeps": []
+    },
+    {
+      "dirname": "turn_oven_function_knob_Oven_100426_2026-01-03-02-20-56",
+      "substeps": [
+        "grasp the function knob",
+        "turn the function knob to the 'bake' setting"
+      ]
+    },
+    {
+      "dirname": "turn_oven_temperature_knob_Oven_100426_2026-01-03-02-13-50",
+      "substeps": [
+        "grasp the temperature knob",
+        "turn the temperature knob to a desired setting",
+        "release the knob"
+      ]
+    },
+    {
+      "dirname": "turn_safe_knob_Safe_100426_2026-01-03-02-33-21",
+      "substeps": [
+        "grasp the safe knob",
+        "turn the knob"
+      ]
+    },
+    {
+      "dirname": "turn_washing_cycle_knob_WashingMachine_100426_2026-01-03-02-01-21",
+      "substeps": [
+        "grasp the washing cycle knob",
+        "turn the knob to the desired washing cycle"
+      ]
+    },
+    {
+      "dirname": "unfold_chair_Chair_100426_2026-01-03-01-49-35",
+      "substeps": [
+        "grasp the first foldable part of the chair",
+        "unfold the first part of the chair",
+        "grasp the second foldable part of the chair",
+        "unfold the second part of the chair"
+      ]
+    }
+  ]
+}
