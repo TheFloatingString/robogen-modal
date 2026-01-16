@@ -1,0 +1,4 @@
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "load laundry into the washing machine add detergent and start washing" --target-object "WashingMachine" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "transfer wet laundry to the dryer and start drying" --target-object "Dryer" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "organize items into the correct compartments and close the storage furniture" --target-object "StorageFurniture" --generate-task
+modal run robogen_modal_conda_with_apis.py --target-model-provider openrouter --task-description "make the bed with a pillow and blanket" --target-object "Bed" --generate-task
