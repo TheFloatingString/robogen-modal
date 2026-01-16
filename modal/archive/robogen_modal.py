@@ -6,7 +6,9 @@ app = modal.App("robogen")
 
 # Define the Modal image with CUDA 11.8 support and all necessary dependencies
 image = (
-    modal.Image.from_registry("nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04", add_python="3.9")
+    modal.Image.from_registry(
+        "nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04", add_python="3.9"
+    )
     .apt_install(
         "git",
         "wget",
@@ -54,6 +56,7 @@ image = (
     )
 )
 
+
 @app.function(
     image=image,
     gpu="T4",
@@ -77,7 +80,7 @@ def run_prompt_from_description():
         "--task_description",
         "Put a pen into the box",
         "--object",
-        "Box"
+        "Box",
     ]
 
     print(f"Running command: {' '.join(cmd)}")
@@ -95,7 +98,7 @@ def run_prompt_from_description():
     return {
         "stdout": result.stdout,
         "stderr": result.stderr,
-        "returncode": result.returncode
+        "returncode": result.returncode,
     }
 
 
@@ -115,7 +118,7 @@ def run_execute():
         "python",
         "execute.py",
         "--task_config_path",
-        "example_tasks/Change_Lamp_Direction/Change_Lamp_Direction_The_robotic_arm_will_alter_the_lamps_light_direction_by_manipulating_the_lamps_head.yaml"
+        "example_tasks/Change_Lamp_Direction/Change_Lamp_Direction_The_robotic_arm_will_alter_the_lamps_light_direction_by_manipulating_the_lamps_head.yaml",
     ]
 
     print(f"Running command: {' '.join(cmd)}")
@@ -133,7 +136,7 @@ def run_execute():
     return {
         "stdout": result.stdout,
         "stderr": result.stderr,
-        "returncode": result.returncode
+        "returncode": result.returncode,
     }
 
 

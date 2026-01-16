@@ -15,7 +15,10 @@ from tqdm import tqdm
 # Global lock for directory changes to prevent race conditions in multithreading
 dir_lock = threading.Lock()
 
-def run_task_generation(task_description: str, target_object: str, target_model_provider: str = "openrouter"):
+
+def run_task_generation(
+    task_description: str, target_object: str, target_model_provider: str = "openrouter"
+):
     """
     Run task generation for a single task using Modal
 
@@ -31,24 +34,29 @@ def run_task_generation(task_description: str, target_object: str, target_model_
     script_dir = Path(__file__).parent.resolve()
 
     cmd = [
-        "modal", "run",
+        "modal",
+        "run",
         "./robogen_modal_conda_with_apis.py",  # Use relative path with ./
-        "--target-model-provider", target_model_provider,
-        "--task-description", task_description,
-        "--target-object", target_object,
+        "--target-model-provider",
+        target_model_provider,
+        "--task-description",
+        task_description,
+        "--target-object",
+        target_object,
         "--generate-task",  # Only generate, don't execute
     ]
 
-    print(f"\n{'='*80}")
+    print(f"\n{'=' * 80}")
     print(f"Running task: {task_description}")
     print(f"Object: {target_object}")
     print(f"Model Provider: {target_model_provider}")
     print(f"Script dir: {script_dir}")
-    print(f"{'='*80}")
+    print(f"{'=' * 80}")
     print(f"Command: {' '.join(cmd)}\n")
 
     try:
         import os
+
         # Use relative path with cwd set - this is thread-safe
         print(f"DEBUG: Working directory: {script_dir}")
         print(f"DEBUG: Script file: ./robogen_modal_conda_with_apis.py")
@@ -59,24 +67,24 @@ def run_task_generation(task_description: str, target_object: str, target_model_
             text=True,
             check=False,
             cwd=str(script_dir),  # Set working directory for this subprocess only
-            env={**os.environ, "PYTHONIOENCODING": "utf-8"}
+            env={**os.environ, "PYTHONIOENCODING": "utf-8"},
         )
 
         # Print output (only show errors or last few lines to avoid clutter in multithreaded mode)
         if result.returncode != 0:
-            print(f"\n{'!'*80}")
+            print(f"\n{'!' * 80}")
             print(f"ERROR for task: {task_description}")
             print(f"Return code: {result.returncode}")
-            print(f"{'!'*80}")
+            print(f"{'!' * 80}")
             if result.stdout:
                 # Show last 30 lines of stdout for errors
-                stdout_lines = result.stdout.strip().split('\n')
+                stdout_lines = result.stdout.strip().split("\n")
                 print("Last lines of output:")
-                print('\n'.join(stdout_lines[-30:]))
+                print("\n".join(stdout_lines[-30:]))
             if result.stderr:
                 print("\nStderr:")
                 print(result.stderr)
-            print(f"{'!'*80}\n")
+            print(f"{'!' * 80}\n")
             return False
         else:
             # Success - only show minimal output
@@ -105,9 +113,7 @@ def process_single_task(task_info):
         return (i, prompt, False)
 
     success = run_task_generation(
-        task_description=prompt,
-        target_object=obj,
-        target_model_provider="openrouter"
+        task_description=prompt, target_object=obj, target_model_provider="openrouter"
     )
 
     return (i, prompt, success)
@@ -117,7 +123,9 @@ def main():
     """Main function to process all tasks from the JSON file"""
 
     # Path to the JSON file
-    json_file = Path(__file__).parent / "data" / "tasks" / "2026-01-02-from-GPT-5-2.json"
+    json_file = (
+        Path(__file__).parent / "data" / "tasks" / "2026-01-02-from-GPT-5-2.json"
+    )
 
     if not json_file.exists():
         print(f"Error: JSON file not found at {json_file}")
@@ -125,7 +133,7 @@ def main():
 
     # Load tasks from JSON
     print(f"Loading tasks from {json_file}")
-    with open(json_file, 'r', encoding='utf-8') as f:
+    with open(json_file, "r", encoding="utf-8") as f:
         tasks = json.load(f)
 
     print(f"Loaded {len(tasks)} tasks")
@@ -158,9 +166,9 @@ def main():
                 pbar.update(1)
 
     # Print summary
-    print(f"\n{'='*80}")
+    print(f"\n{'=' * 80}")
     print("BATCH PROCESSING SUMMARY")
-    print(f"{'='*80}")
+    print(f"{'=' * 80}")
     print(f"Total tasks: {len(tasks)}")
     print(f"Successful: {len(successful_tasks)}")
     print(f"Failed: {len(failed_tasks)}")
@@ -170,7 +178,7 @@ def main():
         for task_num, prompt in failed_tasks:
             print(f"  {task_num}. {prompt}")
 
-    print(f"{'='*80}\n")
+    print(f"{'=' * 80}\n")
 
     # Exit with appropriate code
     sys.exit(0 if len(failed_tasks) == 0 else 1)

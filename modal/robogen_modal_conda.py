@@ -4,9 +4,9 @@ import sys
 import argparse
 
 # Fix encoding issues on Windows
-if sys.platform == 'win32':
-    sys.stdout.reconfigure(encoding='utf-8')
-    sys.stderr.reconfigure(encoding='utf-8')
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
 
 # Hardcoded API keys
 NOVITA_API_KEY = ""
@@ -21,12 +21,18 @@ app = modal.App("robogen-conda")
 # Create persistent volumes for data storage
 dataset_volume = modal.Volume.from_name("robogen-dataset", create_if_missing=True)
 embeddings_volume = modal.Volume.from_name("robogen-embeddings", create_if_missing=True)
-outputs_volume = modal.Volume.from_name("robogen-generated_task_outputs", create_if_missing=True)
-models_cache_volume = modal.Volume.from_name("robogen-models-cache", create_if_missing=True)
+outputs_volume = modal.Volume.from_name(
+    "robogen-generated_task_outputs", create_if_missing=True
+)
+models_cache_volume = modal.Volume.from_name(
+    "robogen-models-cache", create_if_missing=True
+)
 
 # Define the Modal image with CUDA 11.8, micromamba, and RoboGen setup
 image = (
-    modal.Image.from_registry("nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04", add_python="3.9")
+    modal.Image.from_registry(
+        "nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04", add_python="3.9"
+    )
     .apt_install(
         "git",
         "wget",
@@ -68,11 +74,9 @@ image = (
         # Install ompl wheel
         "/opt/conda/envs/robogen/bin/pip install /root/RoboGen/ompl-1.6.0*.whl",
     )
-    .run_commands(
-        "cd /root/RoboGen && git pull origin main",
-        force_build=True
-    )
+    .run_commands("cd /root/RoboGen && git pull origin main", force_build=True)
 )
+
 
 @app.function(
     image=image,
@@ -109,12 +113,20 @@ def setup_dataset():
     cmd = [
         "/opt/conda/envs/robogen/bin/gdown",
         f"https://drive.google.com/uc?id={file_id}",
-        "-O", output_file,
-        "--fuzzy"  # Better handling of Google Drive downloads
+        "-O",
+        output_file,
+        "--fuzzy",  # Better handling of Google Drive downloads
     ]
 
     # Run with real-time output to show gdown's built-in progress
-    result = subprocess.Popen(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+    result = subprocess.Popen(
+        cmd,
+        env=env,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        bufsize=1,
+    )
 
     for line in result.stdout:
         sys.stdout.write(line)
@@ -123,7 +135,10 @@ def setup_dataset():
     result.wait()
 
     if result.returncode != 0:
-        return {"status": "download_failed", "error": "Download failed, check logs above"}
+        return {
+            "status": "download_failed",
+            "error": "Download failed, check logs above",
+        }
 
     print("\n✓ Download complete!")
 
@@ -138,7 +153,7 @@ def setup_dataset():
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         text=True,
-        bufsize=1
+        bufsize=1,
     )
 
     print("      Extracting files...")
@@ -191,7 +206,9 @@ def setup_embeddings():
     if os.path.exists(embeddings_file):
         print("[OK] Embeddings already exist, skipping download")
         file_size = os.path.getsize(embeddings_file)
-        print(f"  Found: partnet_mobility_category_embeddings.pt ({file_size / (1024**2):.2f} MB)")
+        print(
+            f"  Found: partnet_mobility_category_embeddings.pt ({file_size / (1024**2):.2f} MB)"
+        )
         return {"status": "already_exists"}
 
     # Create embeddings directory
@@ -209,8 +226,9 @@ def setup_embeddings():
     cmd = [
         "/opt/conda/envs/robogen/bin/gdown",
         f"https://drive.google.com/uc?id={file_id}",
-        "-O", "/embeddings_data/",
-        "--fuzzy"  # Better handling of Google Drive downloads
+        "-O",
+        "/embeddings_data/",
+        "--fuzzy",  # Better handling of Google Drive downloads
     ]
 
     # Run with real-time output to show gdown's built-in progress
@@ -221,7 +239,7 @@ def setup_embeddings():
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         text=True,
-        bufsize=1
+        bufsize=1,
     )
 
     for line in result.stdout:
@@ -231,7 +249,10 @@ def setup_embeddings():
     result.wait()
 
     if result.returncode != 0:
-        return {"status": "download_failed", "error": "Download failed, check logs above"}
+        return {
+            "status": "download_failed",
+            "error": "Download failed, check logs above",
+        }
 
     print("\n[OK] Download complete!")
 
@@ -240,7 +261,7 @@ def setup_embeddings():
     downloaded_files = os.listdir("/embeddings_data")
     zip_file = None
     for file in downloaded_files:
-        if file.endswith('.zip'):
+        if file.endswith(".zip"):
             zip_file = f"/embeddings_data/{file}"
             break
 
@@ -250,10 +271,7 @@ def setup_embeddings():
 
         unzip_cmd = ["unzip", "-o", zip_file, "-d", "/embeddings_data"]
         unzip_result = subprocess.run(
-            unzip_cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            text=True
+            unzip_cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True
         )
 
         if unzip_result.returncode != 0:
@@ -291,20 +309,25 @@ def setup_embeddings():
         "/data": dataset_volume,
         "/embeddings_data": embeddings_volume,
         "/outputs": outputs_volume,
-        "/root/.cache": models_cache_volume  # Cache for Hugging Face & Torch models
+        "/root/.cache": models_cache_volume,  # Cache for Hugging Face & Torch models
     },
-    secrets=[modal.Secret.from_dict(
-        {
-            "OPENAI_API_KEY": OPENAI_API_KEY,
-            "ANTHROPIC_API_KEY": ANTHROPIC_API_KEY,
-            "NOVITA_API_KEY": NOVITA_API_KEY,
-            "OPENROUTER_API_KEY": OPENROUTER_API_KEY,
-            "WANDB_API_KEY": WANDB_API_KEY
-        }
-    )],
+    secrets=[
+        modal.Secret.from_dict(
+            {
+                "OPENAI_API_KEY": OPENAI_API_KEY,
+                "ANTHROPIC_API_KEY": ANTHROPIC_API_KEY,
+                "NOVITA_API_KEY": NOVITA_API_KEY,
+                "OPENROUTER_API_KEY": OPENROUTER_API_KEY,
+                "WANDB_API_KEY": WANDB_API_KEY,
+            }
+        )
+    ],
     timeout=3600,
 )
-def run_prompt_from_description(target_model_provider: str = "novita", task_description: str = "Put a pen into the box"):
+def run_prompt_from_description(
+    target_model_provider: str = "novita",
+    task_description: str = "Put a pen into the box",
+):
     """Run the prompt_from_description.py command"""
     import subprocess
     import shutil
@@ -364,7 +387,9 @@ def run_prompt_from_description(target_model_provider: str = "novita", task_desc
 
         # Create symlink to outputs volume
         os.symlink("/outputs", generated_tasks_path)
-        print("[OK] Linked /root/RoboGen/data/generated_task_from_description to outputs volume")
+        print(
+            "[OK] Linked /root/RoboGen/data/generated_task_from_description to outputs volume"
+        )
 
     # Set up environment to use conda
     env = os.environ.copy()
@@ -380,7 +405,7 @@ def run_prompt_from_description(target_model_provider: str = "novita", task_desc
         capture_output=True,
         text=True,
         env=env,
-        cwd="/root/RoboGen"
+        cwd="/root/RoboGen",
     )
     print("prepare.sh output:", prepare_result.stdout)
     if prepare_result.stderr:
@@ -392,7 +417,7 @@ def run_prompt_from_description(target_model_provider: str = "novita", task_desc
         "--task_description",
         task_description,
         "--object",
-        "Box"
+        "Box",
     ]
 
     print(f"Running command: {' '.join(cmd)}")
@@ -416,7 +441,7 @@ def run_prompt_from_description(target_model_provider: str = "novita", task_desc
     return {
         "stdout": result.stdout,
         "stderr": result.stderr,
-        "returncode": result.returncode
+        "returncode": result.returncode,
     }
 
 
@@ -427,17 +452,19 @@ def run_prompt_from_description(target_model_provider: str = "novita", task_desc
         "/data": dataset_volume,
         "/embeddings_data": embeddings_volume,
         "/outputs": outputs_volume,
-        "/root/.cache": models_cache_volume  # Cache for Hugging Face & Torch models
+        "/root/.cache": models_cache_volume,  # Cache for Hugging Face & Torch models
     },
-    secrets=[modal.Secret.from_dict(
-        {
-            "OPENAI_API_KEY": OPENAI_API_KEY,
-            "ANTHROPIC_API_KEY": ANTHROPIC_API_KEY,
-            "NOVITA_API_KEY": NOVITA_API_KEY,
-            "OPENROUTER_API_KEY": OPENROUTER_API_KEY,
-            "WANDB_API_KEY": WANDB_API_KEY
-        }
-    )],
+    secrets=[
+        modal.Secret.from_dict(
+            {
+                "OPENAI_API_KEY": OPENAI_API_KEY,
+                "ANTHROPIC_API_KEY": ANTHROPIC_API_KEY,
+                "NOVITA_API_KEY": NOVITA_API_KEY,
+                "OPENROUTER_API_KEY": OPENROUTER_API_KEY,
+                "WANDB_API_KEY": WANDB_API_KEY,
+            }
+        )
+    ],
     timeout=3600,
 )
 def run_execute(target_model_provider: str = "novita", task_config_path: str = None):
@@ -500,7 +527,9 @@ def run_execute(target_model_provider: str = "novita", task_config_path: str = N
 
         # Create symlink to outputs volume
         os.symlink("/outputs", generated_tasks_path)
-        print("[OK] Linked /root/RoboGen/data/generated_task_from_description to outputs volume")
+        print(
+            "[OK] Linked /root/RoboGen/data/generated_task_from_description to outputs volume"
+        )
 
     # Set up environment to use conda
     env = os.environ.copy()
@@ -516,7 +545,7 @@ def run_execute(target_model_provider: str = "novita", task_config_path: str = N
         capture_output=True,
         text=True,
         env=env,
-        cwd="/root/RoboGen"
+        cwd="/root/RoboGen",
     )
     print("prepare.sh output:", prepare_result.stdout)
     if prepare_result.stderr:
@@ -530,35 +559,36 @@ def run_execute(target_model_provider: str = "novita", task_config_path: str = N
         "/opt/conda/envs/robogen/bin/python",
         "execute.py",
         "--task_config_path",
-        task_config_path
+        task_config_path,
     ]
 
     print(f"Running command: {' '.join(cmd)}")
 
     # Use Popen with stderr merged into stdout for real-time streaming
     import sys
+
     process = subprocess.Popen(
         cmd,
         env=env,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,  # Merge stderr into stdout for real-time interleaved output
         text=True,
-        bufsize=1  # Line buffered
+        bufsize=1,  # Line buffered
     )
 
     # Stream output in real-time
     output_lines = []
     for line in process.stdout:
-        print(line, end='')  # Print immediately as it comes
+        print(line, end="")  # Print immediately as it comes
         sys.stdout.flush()  # Force flush to ensure immediate display
         output_lines.append(line)
 
     # Wait for process to complete
     process.wait()
 
-    print(f"\n{'='*80}")
+    print(f"\n{'=' * 80}")
     print(f"Return code: {process.returncode}")
-    print(f"{'='*80}")
+    print(f"{'=' * 80}")
 
     # Commit model cache volume to persist downloaded models
     print("\n> Committing model cache volume...")
@@ -566,9 +596,9 @@ def run_execute(target_model_provider: str = "novita", task_config_path: str = N
     print("[OK] Model cache saved! Next run will use cached models.")
 
     return {
-        "stdout": ''.join(output_lines),
+        "stdout": "".join(output_lines),
         "stderr": "",  # stderr was merged into stdout
-        "returncode": process.returncode
+        "returncode": process.returncode,
     }
 
 
@@ -578,7 +608,7 @@ def main(
     task_description: str = "Put a pen into the box",
     generate_task: bool = False,
     execute: bool = False,
-    task_config_path: str = None
+    task_config_path: str = None,
 ):
     """
     Run RoboGen pipeline with optional step selection
@@ -602,9 +632,13 @@ def main(
     if dataset_result["status"] == "already_exists":
         print("-> Dataset already configured")
     elif dataset_result["status"] == "success":
-        print(f"-> Dataset setup successful! Extracted {dataset_result.get('files_extracted', 'N/A')} files")
+        print(
+            f"-> Dataset setup successful! Extracted {dataset_result.get('files_extracted', 'N/A')} files"
+        )
     else:
-        print(f"[X] Dataset setup failed: {dataset_result.get('error', 'Unknown error')}")
+        print(
+            f"[X] Dataset setup failed: {dataset_result.get('error', 'Unknown error')}"
+        )
         return
 
     # Step 2: Setup embeddings (always run)
@@ -613,9 +647,13 @@ def main(
     if embeddings_result["status"] == "already_exists":
         print("-> Embeddings already configured")
     elif embeddings_result["status"] == "success":
-        print(f"-> Embeddings setup successful! Downloaded {len(embeddings_result.get('files', []))} file(s)")
+        print(
+            f"-> Embeddings setup successful! Downloaded {len(embeddings_result.get('files', []))} file(s)"
+        )
     else:
-        print(f"[X] Embeddings setup failed: {embeddings_result.get('error', 'Unknown error')}")
+        print(
+            f"[X] Embeddings setup failed: {embeddings_result.get('error', 'Unknown error')}"
+        )
         return
 
     # Determine what to run based on flags
@@ -642,7 +680,9 @@ def main(
         print("\n" + "=" * 80)
         print("STEP 3: Running prompt_from_description.py")
         print("=" * 80)
-        result1 = run_prompt_from_description.remote(target_model_provider, task_description)
+        result1 = run_prompt_from_description.remote(
+            target_model_provider, task_description
+        )
         print(f"\n-> Completed with return code: {result1['returncode']}\n")
 
     # Step 4: Run execute

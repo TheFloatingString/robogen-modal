@@ -30,18 +30,14 @@ def get_toml_files_from_volume(output_directory):
 
         print(f"  Checking: {output_directory}")
         result = subprocess.run(
-            cmd,
-            shell=True,
-            capture_output=True,
-            text=True,
-            timeout=30
+            cmd, shell=True, capture_output=True, text=True, timeout=30
         )
 
         if result.returncode == 0:
             # Parse the output to find .toml files
             toml_files = []
-            for line in result.stdout.split('\n'):
-                if line.strip().endswith('.toml'):
+            for line in result.stdout.split("\n"):
+                if line.strip().endswith(".toml"):
                     # Extract just the filename
                     filename = line.strip().split()[-1]
                     toml_files.append(filename)
@@ -66,22 +62,18 @@ def list_all_volume_directories():
 
         print("Listing all directories in Modal volume...")
         result = subprocess.run(
-            cmd,
-            shell=True,
-            capture_output=True,
-            text=True,
-            timeout=60
+            cmd, shell=True, capture_output=True, text=True, timeout=60
         )
 
         if result.returncode == 0:
             # Parse the output to find directories
             directories = []
-            for line in result.stdout.split('\n'):
+            for line in result.stdout.split("\n"):
                 line = line.strip()
-                if line and not line.endswith('.toml'):
+                if line and not line.endswith(".toml"):
                     # This is likely a directory
                     # Extract the name (last part if there are spaces)
-                    dir_name = line.split()[-1].rstrip('/')
+                    dir_name = line.split()[-1].rstrip("/")
                     if dir_name:
                         directories.append(dir_name)
             return directories
@@ -107,7 +99,7 @@ def update_csv_with_toml_files(csv_path, dry_run=False):
 
     # Read all rows from CSV
     rows = []
-    with open(csv_path, 'r', newline='') as f:
+    with open(csv_path, "r", newline="") as f:
         reader = csv.DictReader(f)
         fieldnames = reader.fieldnames
         for row in reader:
@@ -118,7 +110,7 @@ def update_csv_with_toml_files(csv_path, dry_run=False):
     # Find rows that need updating
     rows_to_update = []
     for i, row in enumerate(rows):
-        if row.get('output_directory') and not row.get('toml_files'):
+        if row.get("output_directory") and not row.get("toml_files"):
             rows_to_update.append((i, row))
 
     print(f"Found {len(rows_to_update)} rows with missing toml_files")
@@ -130,17 +122,17 @@ def update_csv_with_toml_files(csv_path, dry_run=False):
     # Update rows with toml file information
     updated_count = 0
     for idx, row in rows_to_update:
-        output_dir = row['output_directory']
+        output_dir = row["output_directory"]
         toml_files = get_toml_files_from_volume(output_dir)
 
         if toml_files:
-            toml_str = ', '.join(toml_files)
+            toml_str = ", ".join(toml_files)
             if dry_run:
                 print(f"  [DRY RUN] Would update row {idx + 1}:")
                 print(f"    Directory: {output_dir}")
                 print(f"    TOML files: {toml_str}")
             else:
-                rows[idx]['toml_files'] = toml_str
+                rows[idx]["toml_files"] = toml_str
                 updated_count += 1
                 print(f"  ✓ Updated row {idx + 1}: {output_dir}")
                 print(f"    TOML files: {toml_str}")
@@ -149,13 +141,15 @@ def update_csv_with_toml_files(csv_path, dry_run=False):
 
     # Write back to CSV if not dry run
     if not dry_run and updated_count > 0:
-        with open(csv_path, 'w', newline='') as f:
+        with open(csv_path, "w", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(rows)
         print(f"\n✓ Updated {updated_count} rows in {csv_path}")
     elif dry_run:
-        print(f"\n[DRY RUN] Would update {len([r for r in rows_to_update if get_toml_files_from_volume(r[1]['output_directory'])])} rows")
+        print(
+            f"\n[DRY RUN] Would update {len([r for r in rows_to_update if get_toml_files_from_volume(r[1]['output_directory'])])} rows"
+        )
 
 
 def scan_volume_and_match(csv_path):
@@ -198,23 +192,20 @@ def scan_volume_and_match(csv_path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Update CSV log with .toml file information from Modal volume'
+        description="Update CSV log with .toml file information from Modal volume"
     )
     parser.add_argument(
-        '--csv-log',
-        type=str,
-        default='task_runs_log.csv',
-        help='Path to CSV log file'
+        "--csv-log", type=str, default="task_runs_log.csv", help="Path to CSV log file"
     )
     parser.add_argument(
-        '--dry-run',
-        action='store_true',
-        help='Show what would be updated without modifying the CSV'
+        "--dry-run",
+        action="store_true",
+        help="Show what would be updated without modifying the CSV",
     )
     parser.add_argument(
-        '--scan-only',
-        action='store_true',
-        help='Just scan the Modal volume and show all directories with TOML files'
+        "--scan-only",
+        action="store_true",
+        help="Just scan the Modal volume and show all directories with TOML files",
     )
 
     args = parser.parse_args()
@@ -233,5 +224,5 @@ def main():
     print("=" * 80)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

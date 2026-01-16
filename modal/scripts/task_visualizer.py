@@ -6,17 +6,13 @@ from pathlib import Path
 app = modal.App("robogen-task-visualizer")
 
 # Access the existing outputs volume
-outputs_volume = modal.Volume.from_name("robogen-generated_task_outputs", create_if_missing=False)
+outputs_volume = modal.Volume.from_name(
+    "robogen-generated_task_outputs", create_if_missing=False
+)
 
 # Define image with visualization libraries
-image = (
-    modal.Image.debian_slim()
-    .pip_install(
-        "networkx",
-        "matplotlib",
-        "Pillow"
-    )
-)
+image = modal.Image.debian_slim().pip_install("networkx", "matplotlib", "Pillow")
+
 
 @app.function(
     image=image,
@@ -31,7 +27,8 @@ def visualize_tasks():
     import networkx as nx
     import matplotlib.pyplot as plt
     import matplotlib
-    matplotlib.use('Agg')  # Use non-interactive backend
+
+    matplotlib.use("Agg")  # Use non-interactive backend
 
     outputs_dir = Path("/outputs")
 
@@ -61,7 +58,7 @@ def visualize_tasks():
         python_files = []
         for root, dirs, files in os.walk(task_dir):
             for file in files:
-                if file.endswith('.py'):
+                if file.endswith(".py"):
                     file_path = Path(root) / file
                     rel_path = file_path.relative_to(task_dir)
                     python_files.append(str(rel_path))
@@ -72,11 +69,11 @@ def visualize_tasks():
         G = nx.Graph()
 
         # Add root node (task name)
-        G.add_node(task_name, node_type='root')
+        G.add_node(task_name, node_type="root")
 
         # Add Python file nodes and edges
         for py_file in python_files:
-            G.add_node(py_file, node_type='file')
+            G.add_node(py_file, node_type="file")
             G.add_edge(task_name, py_file)
             print(f"    - {py_file}")
 
@@ -90,24 +87,26 @@ def visualize_tasks():
         node_colors = []
         node_sizes = []
         for node in G.nodes():
-            if G.nodes[node]['node_type'] == 'root':
-                node_colors.append('#FF6B6B')  # Red for task name
+            if G.nodes[node]["node_type"] == "root":
+                node_colors.append("#FF6B6B")  # Red for task name
                 node_sizes.append(3000)
             else:
-                node_colors.append('#4ECDC4')  # Teal for files
+                node_colors.append("#4ECDC4")  # Teal for files
                 node_sizes.append(2000)
 
         # Draw the graph
-        nx.draw_networkx_nodes(G, pos, node_color=node_colors, node_size=node_sizes, alpha=0.9)
-        nx.draw_networkx_edges(G, pos, width=2, alpha=0.5, edge_color='#95A5A6')
+        nx.draw_networkx_nodes(
+            G, pos, node_color=node_colors, node_size=node_sizes, alpha=0.9
+        )
+        nx.draw_networkx_edges(G, pos, width=2, alpha=0.5, edge_color="#95A5A6")
 
         # Draw labels with better formatting
         labels = {}
         for node in G.nodes():
-            if G.nodes[node]['node_type'] == 'root':
+            if G.nodes[node]["node_type"] == "root":
                 # Wrap long task names
                 if len(node) > 40:
-                    words = node.split('_')
+                    words = node.split("_")
                     lines = []
                     current_line = []
                     current_length = 0
@@ -116,40 +115,44 @@ def visualize_tasks():
                             current_line.append(word)
                             current_length += len(word) + 1
                         else:
-                            lines.append('_'.join(current_line))
+                            lines.append("_".join(current_line))
                             current_line = [word]
                             current_length = len(word)
                     if current_line:
-                        lines.append('_'.join(current_line))
-                    labels[node] = '\n'.join(lines)
+                        lines.append("_".join(current_line))
+                    labels[node] = "\n".join(lines)
                 else:
                     labels[node] = node
             else:
                 # Show only filename for files, wrap if needed
                 filename = Path(node).name
                 if len(filename) > 30:
-                    labels[node] = filename[:27] + '...'
+                    labels[node] = filename[:27] + "..."
                 else:
                     labels[node] = filename
 
-        nx.draw_networkx_labels(G, pos, labels, font_size=9, font_weight='bold')
+        nx.draw_networkx_labels(G, pos, labels, font_size=9, font_weight="bold")
 
-        plt.title(f"Task Structure: {task_name}", fontsize=14, fontweight='bold', pad=20)
-        plt.axis('off')
+        plt.title(
+            f"Task Structure: {task_name}", fontsize=14, fontweight="bold", pad=20
+        )
+        plt.axis("off")
         plt.tight_layout()
 
         # Save the figure
         output_file = task_dir / f"{task_name}_graph.png"
-        plt.savefig(output_file, dpi=150, bbox_inches='tight', facecolor='white')
+        plt.savefig(output_file, dpi=150, bbox_inches="tight", facecolor="white")
         plt.close()
 
         print(f"  ✓ Saved graph to: {output_file}")
 
-        all_graphs.append({
-            'task_name': task_name,
-            'python_files': python_files,
-            'graph_path': str(output_file)
-        })
+        all_graphs.append(
+            {
+                "task_name": task_name,
+                "python_files": python_files,
+                "graph_path": str(output_file),
+            }
+        )
 
     # Commit volume changes to persist the generated graphs
     print("\n" + "=" * 80)
@@ -171,7 +174,7 @@ def visualize_tasks():
     return {
         "status": "success",
         "tasks_processed": len(all_graphs),
-        "graphs": all_graphs
+        "graphs": all_graphs,
     }
 
 

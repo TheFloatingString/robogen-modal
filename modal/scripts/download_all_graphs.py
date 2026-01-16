@@ -2,6 +2,7 @@
 """
 Script to download all graph images from Modal volume
 """
+
 import subprocess
 import os
 
@@ -66,6 +67,7 @@ tasks = [
     "put_the_box_in_the_middle_of_the_table_Box_100426_2025-10-25-17-03-56",
 ]
 
+
 def main():
     # Set up environment
     env = os.environ.copy()
@@ -91,13 +93,20 @@ def main():
         try:
             # Run modal volume get command
             result = subprocess.run(
-                ["modal", "volume", "get", "robogen-generated_task_outputs", remote_path, local_path],
+                [
+                    "modal",
+                    "volume",
+                    "get",
+                    "robogen-generated_task_outputs",
+                    remote_path,
+                    local_path,
+                ],
                 env=env,
                 capture_output=True,
                 text=True,
-                encoding='utf-8',
-                errors='replace',
-                timeout=30
+                encoding="utf-8",
+                errors="replace",
+                timeout=30,
             )
 
             if result.returncode == 0:
@@ -118,6 +127,7 @@ def main():
     print(f"Success: {success}")
     print(f"Failed: {failed}")
     print(f"\nGraphs saved to: task_graphs/")
+
 
 if __name__ == "__main__":
     main()

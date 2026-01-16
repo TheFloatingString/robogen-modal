@@ -18,11 +18,19 @@ from typing import Optional
 app = modal.App("get-stats")
 
 # Reference to the existing volume
-volume = modal.Volume.from_name("robogen-generated_task_outputs", create_if_missing=False)
+volume = modal.Volume.from_name(
+    "robogen-generated_task_outputs", create_if_missing=False
+)
 
 VOLUME_PATH = "/data"
 
-image = modal.Image.debian_slim(python_version="3.9").pip_install("tqdm").pip_install("networkx").pip_install("matplotlib").pip_install("pyyaml")
+image = (
+    modal.Image.debian_slim(python_version="3.9")
+    .pip_install("tqdm")
+    .pip_install("networkx")
+    .pip_install("matplotlib")
+    .pip_install("pyyaml")
+)
 
 
 def parse_timestamp_from_dirname(dirname: str) -> Optional[datetime]:
@@ -34,7 +42,7 @@ def parse_timestamp_from_dirname(dirname: str) -> Optional[datetime]:
         datetime object if timestamp found, None otherwise
     """
     # Pattern to match timestamp at the end: YYYY-MM-DD-HH-MM-SS
-    pattern = r'(\d{4})-(\d{2})-(\d{2})-(\d{2})-(\d{2})-(\d{2})$'
+    pattern = r"(\d{4})-(\d{2})-(\d{2})-(\d{2})-(\d{2})-(\d{2})$"
     match = re.search(pattern, dirname)
 
     if match:
@@ -54,8 +62,8 @@ def extract_task_name(dirname: str) -> str:
         Task name without timestamp
     """
     # Remove timestamp pattern from the end
-    pattern = r'_\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}$'
-    return re.sub(pattern, '', dirname)
+    pattern = r"_\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}$"
+    return re.sub(pattern, "", dirname)
 
 
 def get_model_name_from_metadata(subdir_path: Path) -> Optional[str]:
@@ -75,15 +83,19 @@ def get_model_name_from_metadata(subdir_path: Path) -> Optional[str]:
         return None
 
     try:
-        with open(metadata_file, 'r', encoding='utf-8') as f:
+        with open(metadata_file, "r", encoding="utf-8") as f:
             metadata = yaml.safe_load(f)
-            return metadata.get('model_name')
+            return metadata.get("model_name")
     except Exception:
         return None
 
 
-@app.function(volumes={VOLUME_PATH: volume},image=image)
-def analyze_task_outputs(unique_tasks: bool = False, after_date: Optional[str] = None, model_names: Optional[str] = None):
+@app.function(volumes={VOLUME_PATH: volume}, image=image)
+def analyze_task_outputs(
+    unique_tasks: bool = False,
+    after_date: Optional[str] = None,
+    model_names: Optional[str] = None,
+):
     """
     Analyze the task outputs directory and generate statistics.
 
@@ -105,12 +117,14 @@ def analyze_task_outputs(unique_tasks: bool = False, after_date: Optional[str] =
             cutoff_date = datetime.strptime(after_date, "%Y-%m-%d")
             print(f"\nFiltering for tasks after: {after_date}")
         except ValueError:
-            print(f"Warning: Invalid date format '{after_date}', expected YYYY-MM-DD. Ignoring filter.")
+            print(
+                f"Warning: Invalid date format '{after_date}', expected YYYY-MM-DD. Ignoring filter."
+            )
 
     # Parse the model_names filter if provided
     allowed_models = None
     if model_names:
-        allowed_models = set(name.strip() for name in model_names.split(','))
+        allowed_models = set(name.strip() for name in model_names.split(","))
         print(f"\nFiltering for model names: {', '.join(allowed_models)}")
 
     # Find all subdirectories using wildcard
@@ -167,7 +181,7 @@ def analyze_task_outputs(unique_tasks: bool = False, after_date: Optional[str] =
             # Use the first match
             substeps_file = substeps_files[0]
             try:
-                with open(substeps_file, 'r', encoding='utf-8') as f:
+                with open(substeps_file, "r", encoding="utf-8") as f:
                     # Read lines and strip whitespace, filter out empty lines
                     substeps = [line.strip() for line in f.readlines() if line.strip()]
             except Exception as e:
@@ -184,7 +198,7 @@ def analyze_task_outputs(unique_tasks: bool = False, after_date: Optional[str] =
                 if has_python and not prev_has_python:
                     all_substeps_data[prev_index] = {
                         "dirname": dirname,
-                        "substeps": substeps
+                        "substeps": substeps,
                     }
                     seen_task_names[task_name] = (prev_index, True)
                 # Skip current entry (keep previous)
@@ -192,19 +206,15 @@ def analyze_task_outputs(unique_tasks: bool = False, after_date: Optional[str] =
             else:
                 # First time seeing this task name
                 seen_task_names[task_name] = (len(all_substeps_data), has_python)
-                all_substeps_data.append({
-                    "dirname": dirname,
-                    "substeps": substeps
-                })
+                all_substeps_data.append({"dirname": dirname, "substeps": substeps})
         else:
             # No unique filter, add all entries
-            all_substeps_data.append({
-                "dirname": dirname,
-                "substeps": substeps
-            })
+            all_substeps_data.append({"dirname": dirname, "substeps": substeps})
 
     # Calculate percentages
-    pct_with_python = (dirs_with_python / total_subdirs * 100) if total_subdirs > 0 else 0
+    pct_with_python = (
+        (dirs_with_python / total_subdirs * 100) if total_subdirs > 0 else 0
+    )
     pct_with_gif = (dirs_with_gif / total_subdirs * 100) if total_subdirs > 0 else 0
 
     # Print statistics
@@ -212,18 +222,24 @@ def analyze_task_outputs(unique_tasks: bool = False, after_date: Optional[str] =
     if cutoff_date:
         print(f"  - Filtered out (before {after_date}): {filtered_by_date}")
     if allowed_models:
-        print(f"  - Filtered out (model not in {', '.join(allowed_models)}): {filtered_by_model}")
+        print(
+            f"  - Filtered out (model not in {', '.join(allowed_models)}): {filtered_by_model}"
+        )
     if unique_tasks:
         print(f"  - Unique task names included: {len(seen_task_names)}")
-    print(f"  - Directories with Python code: {dirs_with_python}/{total_subdirs} ({pct_with_python:.1f}%)")
-    print(f"  - Directories with at least one GIF: {dirs_with_gif}/{total_subdirs} ({pct_with_gif:.1f}%)")
+    print(
+        f"  - Directories with Python code: {dirs_with_python}/{total_subdirs} ({pct_with_python:.1f}%)"
+    )
+    print(
+        f"  - Directories with at least one GIF: {dirs_with_gif}/{total_subdirs} ({pct_with_gif:.1f}%)"
+    )
 
     # Create the JSON output
     output_data = {"data": all_substeps_data}
 
     # Write to all_substeps.json
     output_file = Path(VOLUME_PATH) / "all_substeps.json"
-    with open(output_file, 'w', encoding='utf-8') as f:
+    with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
 
     print(f"\nCreated {output_file} with {len(all_substeps_data)} entries")
@@ -288,21 +304,28 @@ def generate_substep_graph(all_substeps_data, output_filename="substeps_graph.pn
     node_size = 300 + (max_lines * 150)
 
     # Draw nodes
-    nx.draw_networkx_nodes(G, pos, node_color='lightblue',
-                          node_size=node_size, alpha=0.9,
-                          edgecolors='black', linewidths=2)
+    nx.draw_networkx_nodes(
+        G,
+        pos,
+        node_color="lightblue",
+        node_size=node_size,
+        alpha=0.9,
+        edgecolors="black",
+        linewidths=2,
+    )
 
     # Wrap long labels to fit in nodes
     wrapped_labels = {}
     for node in G.nodes():
         label = str(node)
         # Wrap text at 15 characters per line to fit in nodes
-        wrapped_label = '\n'.join(textwrap.wrap(label, width=15))
+        wrapped_label = "\n".join(textwrap.wrap(label, width=15))
         wrapped_labels[node] = wrapped_label
 
     # Draw node labels with wrapped text
-    nx.draw_networkx_labels(G, pos, labels=wrapped_labels,
-                          font_size=7, font_weight='bold')
+    nx.draw_networkx_labels(
+        G, pos, labels=wrapped_labels, font_size=7, font_weight="bold"
+    )
 
     # Create color map (light to dark blue based on frequency)
     cmap = plt.cm.YlOrRd  # Yellow to Orange to Red colormap
@@ -311,26 +334,37 @@ def generate_substep_graph(all_substeps_data, output_filename="substeps_graph.pn
     # Draw edges with color based on frequency
     for (source, target), count in transition_counts.items():
         color = cmap(norm(count))
-        nx.draw_networkx_edges(G, pos, [(source, target)],
-                              edge_color=[color], width=2,
-                              arrowsize=20, arrowstyle='->',
-                              connectionstyle='arc3,rad=0.1')
+        nx.draw_networkx_edges(
+            G,
+            pos,
+            [(source, target)],
+            edge_color=[color],
+            width=2,
+            arrowsize=20,
+            arrowstyle="->",
+            connectionstyle="arc3,rad=0.1",
+        )
 
     # Create colorbar legend
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
     sm.set_array([])
-    cbar = plt.colorbar(sm, ax=plt.gca(), orientation='vertical',
-                        fraction=0.046, pad=0.04)
-    cbar.set_label('Transition Frequency', rotation=270, labelpad=25, fontsize=12)
+    cbar = plt.colorbar(
+        sm, ax=plt.gca(), orientation="vertical", fraction=0.046, pad=0.04
+    )
+    cbar.set_label("Transition Frequency", rotation=270, labelpad=25, fontsize=12)
 
-    plt.title('Substep Transition Graph\n(Color indicates frequency: light = rare, dark = common)',
-              fontsize=16, fontweight='bold', pad=20)
-    plt.axis('off')
+    plt.title(
+        "Substep Transition Graph\n(Color indicates frequency: light = rare, dark = common)",
+        fontsize=16,
+        fontweight="bold",
+        pad=20,
+    )
+    plt.axis("off")
     plt.tight_layout()
 
     # Save the graph
     output_path = Path(output_filename)
-    plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
+    plt.savefig(output_path, dpi=300, bbox_inches="tight", facecolor="white")
     print(f"\nGraph saved to {output_path}")
     print(f"   - Total unique substeps (nodes): {G.number_of_nodes()}")
     print(f"   - Total transitions (edges): {G.number_of_edges()}")
@@ -340,7 +374,11 @@ def generate_substep_graph(all_substeps_data, output_filename="substeps_graph.pn
 
 
 @app.local_entrypoint()
-def main(unique_tasks: bool = False, after_date: Optional[str] = None, model_names: Optional[str] = None):
+def main(
+    unique_tasks: bool = False,
+    after_date: Optional[str] = None,
+    model_names: Optional[str] = None,
+):
     """
     Main entry point for the script.
 
@@ -354,11 +392,13 @@ def main(unique_tasks: bool = False, after_date: Optional[str] = None, model_nam
     print(f"  - After date: {after_date or 'None (all dates)'}")
     print(f"  - Model names: {model_names or 'None (all models)'}")
 
-    result = analyze_task_outputs.remote(unique_tasks=unique_tasks, after_date=after_date, model_names=model_names)
+    result = analyze_task_outputs.remote(
+        unique_tasks=unique_tasks, after_date=after_date, model_names=model_names
+    )
 
     # Save locally as well
     local_output = Path("all_substeps.json")
-    with open(local_output, 'w', encoding='utf-8') as f:
+    with open(local_output, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
 
     print(f"\nAlso saved locally to {local_output}")

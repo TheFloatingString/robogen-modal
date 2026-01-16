@@ -11,4 +11,6 @@ dependencies = [
     "tqdm>=4.67.1",
     "networkx>=3.4.2",
     "matplotlib>=3.10.0",
+    "scikit-learn>=1.8.0",
+    "openai>=2.15.0",
 ]
