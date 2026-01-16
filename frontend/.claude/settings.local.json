@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node verify_nodes.js:*)",
+      "Bash(node -e:*)",
+      "Bash(node check_structure.js:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

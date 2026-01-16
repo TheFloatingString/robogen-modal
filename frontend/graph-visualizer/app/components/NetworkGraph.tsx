@@ -3,9 +3,16 @@
 import { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 
+interface SubstepWithClusters {
+  text: string;
+  clusters: {
+    [key: string]: number;
+  };
+}
+
 interface SubstepData {
   dirname: string;
-  substeps: string[];
+  substeps: SubstepWithClusters[];
 }
 
 interface GraphNode extends d3.SimulationNodeDatum {
@@ -18,6 +25,28 @@ interface GraphLink extends d3.SimulationLinkDatum<GraphNode> {
   source: string | GraphNode;
   target: string | GraphNode;
   frequency: number;
+}
+
+interface ClusterSummary {
+  summary: string;
+  size: number;
+  examples: string[];
+}
+
+interface ClusteringData {
+  metadata: {
+    total_unique_substeps: number;
+    total_entries: number;
+    k_values: number[];
+    embedding_model: string;
+    summary_model: string;
+  };
+  data: SubstepData[];
+  cluster_summaries: {
+    [key: string]: {
+      [clusterKey: string]: ClusterSummary;
+    };
+  };
 }
 
 export default function NetworkGraph() {
@@ -36,21 +65,27 @@ export default function NetworkGraph() {
   const animationIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const [nodeGradient, setNodeGradient] = useState('');
   const [edgeGradient, setEdgeGradient] = useState('');
+  const [clusteringData, setClusteringData] = useState<ClusteringData | null>(null);
+  const [showEmbeddings, setShowEmbeddings] = useState(false);
+  const [currentK, setCurrentK] = useState(2);
+  const [graphReady, setGraphReady] = useState(false);
 
   useEffect(() => {
-    fetch('/all_substeps.json')
+    fetch('/clustering_results.json')
       .then((res) => res.json())
       .then((json) => {
+        setClusteringData(json);
         setData(json.data);
         setLoading(false);
+        console.log('Loaded clustering data:', json);
       })
       .catch((err) => {
-        console.error('Error loading data:', err);
+        console.error('Error loading clustering data:', err);
         setLoading(false);
       });
   }, []);
 
-  // Keyboard listener for 'L' key to toggle dark mode, '1-9' for longest paths, and 'j' for animation
+  // Keyboard listener for 'L' key to toggle dark mode, '1-9' for longest paths, 'j' for animation, 'e' for embeddings, 'u'/'i' for k adjustment
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'l' || event.key === 'L') {
@@ -58,6 +93,15 @@ export default function NetworkGraph() {
       } else if (event.key === 'j' || event.key === 'J') {
         // Toggle animation
         setIsAnimating((prev) => !prev);
+      } else if (event.key === 'e' || event.key === 'E') {
+        // Toggle embedding view
+        setShowEmbeddings((prev) => !prev);
+      } else if (event.key === 'u' || event.key === 'U') {
+        // Decrease k value (minimum 2)
+        setCurrentK((prev) => Math.max(2, prev - 1));
+      } else if (event.key === 'i' || event.key === 'I') {
+        // Increase k value (maximum 10)
+        setCurrentK((prev) => Math.min(10, prev + 1));
       } else if (event.key >= '1' && event.key <= '9') {
         const pathNumber = parseInt(event.key);
         const pathIndex = pathNumber - 1;
@@ -136,28 +180,30 @@ export default function NetworkGraph() {
       if (item.substeps.length === 0) return;
 
       item.substeps.forEach((substep, index) => {
+        const substepText = substep.text;
+
         // Add or update node
-        if (!nodeMap.has(substep)) {
-          nodeMap.set(substep, {
-            id: substep,
+        if (!nodeMap.has(substepText)) {
+          nodeMap.set(substepText, {
+            id: substepText,
             tasks: new Set([item.dirname]),
             frequency: 1,
           });
         } else {
-          const node = nodeMap.get(substep)!;
+          const node = nodeMap.get(substepText)!;
           node.tasks.add(item.dirname);
           node.frequency += 1;
         }
 
         // Add or update link to next substep
         if (index < item.substeps.length - 1) {
-          const nextSubstep = item.substeps[index + 1];
-          const linkKey = `${substep}→${nextSubstep}`;
+          const nextSubstepText = item.substeps[index + 1].text;
+          const linkKey = `${substepText}→${nextSubstepText}`;
 
           if (!linkMap.has(linkKey)) {
             linkMap.set(linkKey, {
-              source: substep,
-              target: nextSubstep,
+              source: substepText,
+              target: nextSubstepText,
               frequency: 1,
             });
           } else {
@@ -312,7 +358,8 @@ export default function NetworkGraph() {
       .style('background-color', currentTheme.svgBg);
 
     // Add zoom behavior
-    const g = svg.append('g');
+    const g = svg.append('g')
+      .style('opacity', 0); // Start invisible
 
     svg.call(
       d3.zoom<SVGSVGElement, unknown>()
@@ -356,7 +403,9 @@ export default function NetworkGraph() {
       )
       .force('charge', d3.forceManyBody().strength(-300))
       .force('center', d3.forceCenter(width / 2, height / 2).strength(2)) // 2x centering force
-      .force('collision', d3.forceCollide().radius(30));
+      .force('collision', d3.forceCollide().radius(30))
+      .alpha(1) // Start with higher energy
+      .alphaDecay(0.02); // Slower decay for smoother settling
 
     // Create links with color scheme (magma 0.9 to 0.5 for light, viridis for dark)
     const link = g
@@ -396,7 +445,50 @@ export default function NetworkGraph() {
       .style('line-height', '1.4')
       .style('border', darkMode ? '1px solid rgba(96, 165, 250, 0.3)' : 'none');
 
-    // Create nodes with colors based on frequency (magma 0.9 to 0.5 for light, viridis for dark)
+    // Helper function to get cluster color
+    const getClusterColor = (clusterId: number, numClusters: number) => {
+      // Use distinct colors for clusters
+      if (numClusters > 10) {
+        // For more than 10 clusters, use rainbow interpolation
+        const t = numClusters > 1 ? clusterId / (numClusters - 1) : 0;
+        return d3.interpolateRainbow(t);
+      }
+      // Use schemeCategory10 directly as an array
+      return d3.schemeCategory10[clusterId % 10];
+    };
+
+    // Build cluster assignments from the substeps data
+    const completeClusterAssignments: {[key: string]: number} = {};
+    const clusterKey = `k_${currentK}`;
+
+    // Extract cluster assignments from the substeps data
+    data.forEach(item => {
+      item.substeps.forEach(substep => {
+        const clusterId = substep.clusters[clusterKey];
+        if (clusterId !== undefined) {
+          completeClusterAssignments[substep.text] = clusterId;
+        }
+      });
+    });
+
+    // Check for missing assignments
+    const missingNodes: string[] = [];
+    nodes.forEach(node => {
+      if (completeClusterAssignments[node.id] === undefined) {
+        missingNodes.push(node.id);
+        completeClusterAssignments[node.id] = 0; // Fallback to cluster 0
+      }
+    });
+
+    if (missingNodes.length > 0) {
+      console.warn(`Warning: ${missingNodes.length} nodes are missing cluster assignments for k=${currentK}. They will be assigned to cluster 0.`);
+      console.warn('First 10 missing nodes:', missingNodes.slice(0, 10));
+    }
+
+    // Get cluster summaries
+    const clusterSummaries = clusteringData?.cluster_summaries?.[clusterKey] || {};
+
+    // Create nodes with colors based on frequency (magma 0.9 to 0.5 for light, viridis for dark) or cluster
     const node = g
       .append('g')
       .selectAll('circle')
@@ -407,7 +499,13 @@ export default function NetworkGraph() {
       .attr('data-frequency', (d) => d.frequency)
       .attr('data-max-frequency', calculatedMaxNodeFrequency)
       .attr('data-degree', (d: any) => d.degree)
+      .attr('data-cluster', (d) => completeClusterAssignments[d.id])
       .attr('fill', (d) => {
+        // Use cluster colors if embedding view is enabled
+        if (showEmbeddings) {
+          return getClusterColor(completeClusterAssignments[d.id], currentK);
+        }
+        // Otherwise use frequency-based colors
         const t = calculatedMaxNodeFrequency > 1 ? (d.frequency - 1) / (calculatedMaxNodeFrequency - 1) : 0;
         // Use magma (0.9 to 0.5) for light mode: pale→medium pink, viridis for dark mode
         return darkMode ? d3.interpolateViridis(t) : d3.interpolateMagma(0.9 - t * 0.4);
@@ -433,6 +531,27 @@ export default function NetworkGraph() {
             d.fy = null;
           })
       );
+
+    // Create text labels for cluster names (kept hidden, but available for future use)
+    const nodeLabels = g
+      .append('g')
+      .selectAll('text')
+      .data(nodes)
+      .join('text')
+      .attr('class', 'node-label')
+      .attr('text-anchor', 'middle')
+      .attr('dy', 25)
+      .attr('font-size', '10px')
+      .attr('font-weight', 'bold')
+      .attr('fill', darkMode ? '#ffffff' : '#000000')
+      .attr('pointer-events', 'none')
+      .attr('data-cluster', (d) => completeClusterAssignments[d.id])
+      .style('display', 'none')
+      .text((d) => {
+        const clusterId = completeClusterAssignments[d.id];
+        const clusterKey = `cluster_${clusterId}`;
+        return clusterSummaries[clusterKey]?.summary || `Cluster ${clusterId}`;
+      });
 
     // Add hover effects
     node
@@ -485,6 +604,7 @@ export default function NetworkGraph() {
       });
 
     // Update positions on each tick
+    let tickCount = 0;
     simulation.on('tick', () => {
       link
         .attr('x1', (d) => (d.source as GraphNode).x!)
@@ -493,6 +613,19 @@ export default function NetworkGraph() {
         .attr('y2', (d) => (d.target as GraphNode).y!);
 
       node.attr('cx', (d) => d.x!).attr('cy', (d) => d.y!);
+
+      nodeLabels
+        .attr('x', (d) => d.x!)
+        .attr('y', (d) => d.y!);
+
+      // After initial settling, fade in the graph
+      tickCount++;
+      if (tickCount === 100) {
+        g.transition()
+          .duration(800)
+          .style('opacity', 1);
+        setGraphReady(true);
+      }
     });
 
     // Cleanup
@@ -542,12 +675,51 @@ export default function NetworkGraph() {
     // Update SVG background
     d3.select(svgRef.current).style('background-color', theme.svgBg);
 
-    // Update node strokes and fills with appropriate colormap
-    d3.selectAll('.graph-node').each(function () {
+    // Helper function to get cluster color
+    const getClusterColor = (clusterId: number, numClusters: number) => {
+      if (numClusters > 10) {
+        const t = numClusters > 1 ? clusterId / (numClusters - 1) : 0;
+        return d3.interpolateRainbow(t);
+      }
+      // Use schemeCategory10 directly as an array
+      return d3.schemeCategory10[clusterId % 10];
+    };
+
+    // Build current cluster assignments from the substeps data
+    const clusterKey = `k_${currentK}`;
+    const currentClusterAssignments: {[key: string]: number} = {};
+
+    if (clusteringData?.data) {
+      clusteringData.data.forEach(item => {
+        item.substeps.forEach(substep => {
+          const clusterId = substep.clusters[clusterKey];
+          if (clusterId !== undefined) {
+            currentClusterAssignments[substep.text] = clusterId;
+          }
+        });
+      });
+    }
+
+    const currentClusterSummaries = clusteringData?.cluster_summaries?.[clusterKey] || {};
+
+    // Update node strokes and fills with appropriate colormap or cluster colors
+    d3.selectAll('.graph-node').each(function (d: any) {
       const frequency = +(this as SVGCircleElement).getAttribute('data-frequency')!;
       const maxFrequency = +(this as SVGCircleElement).getAttribute('data-max-frequency')!;
-      const t = maxFrequency > 1 ? (frequency - 1) / (maxFrequency - 1) : 0;
-      const color = darkMode ? d3.interpolateViridis(t) : d3.interpolateMagma(0.9 - t * 0.4);
+
+      // Update cluster assignment based on current k
+      const newClusterId = currentClusterAssignments[d.id] ?? 0;
+      d3.select(this).attr('data-cluster', newClusterId);
+
+      let color: string;
+      // Use cluster colors if embedding view is enabled
+      if (showEmbeddings) {
+        color = getClusterColor(newClusterId, currentK);
+      } else {
+        // Otherwise use frequency-based colors
+        const t = maxFrequency > 1 ? (frequency - 1) / (maxFrequency - 1) : 0;
+        color = darkMode ? d3.interpolateViridis(t) : d3.interpolateMagma(0.9 - t * 0.4);
+      }
 
       d3.select(this)
         .attr('fill', color)
@@ -579,7 +751,21 @@ export default function NetworkGraph() {
     d3.selectAll('.graph-tooltip')
       .style('background-color', darkMode ? 'rgba(30, 41, 59, 0.95)' : 'rgba(0, 0, 0, 0.9)')
       .style('border', darkMode ? '1px solid rgba(96, 165, 250, 0.3)' : 'none');
-  }, [darkMode, maxEdgeFrequency]);
+
+    // Update label attributes (but keep hidden)
+    d3.selectAll('.node-label').each(function (d: any) {
+      // Update cluster assignment
+      const newClusterId = currentClusterAssignments[d.id] ?? 0;
+      const clusterKey = `cluster_${newClusterId}`;
+      const labelText = currentClusterSummaries[clusterKey]?.summary || `Cluster ${newClusterId}`;
+
+      d3.select(this)
+        .attr('data-cluster', newClusterId)
+        .attr('fill', darkMode ? '#ffffff' : '#000000')
+        .style('display', 'none')
+        .text(labelText);
+    });
+  }, [darkMode, maxEdgeFrequency, showEmbeddings, currentK, clusteringData]);
 
   // Separate effect to highlight longest path
   useEffect(() => {
@@ -688,6 +874,14 @@ export default function NetworkGraph() {
             <div className={`text-xs px-3 py-1 rounded-full ${isAnimating ? (darkMode ? 'bg-purple-700 text-purple-200' : 'bg-purple-200 text-purple-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
               Press J to animate {isAnimating ? `(${top1000Paths.length - animationPathIndex}/${top1000Paths.length})` : '(top 1000 paths)'}
             </div>
+            <div className={`text-xs px-3 py-1 rounded-full ${showEmbeddings ? (darkMode ? 'bg-cyan-700 text-cyan-200' : 'bg-cyan-200 text-cyan-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
+              Press E to toggle embeddings {showEmbeddings ? `(k=${currentK})` : ''}
+            </div>
+            {showEmbeddings && (
+              <div className={`text-xs px-3 py-1 rounded-full ${darkMode ? 'bg-cyan-700 text-cyan-200' : 'bg-cyan-200 text-cyan-800'}`}>
+                Press U/I for clusters {currentK > 2 ? '▼' : ''}{currentK < 10 ? '▲' : ''}
+              </div>
+            )}
           </div>
         </div>
         <p className={`text-sm mt-1 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
@@ -699,36 +893,69 @@ export default function NetworkGraph() {
           )}
         </p>
         <div className={`flex flex-col gap-3 mt-3 text-xs ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-          <div className="flex items-center gap-3">
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="font-semibold">Node color = frequency:</span>
+          {!showEmbeddings && (
+            <>
+              <div className="flex items-center gap-3">
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-semibold">Node color = frequency:</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px]">1</span>
+                    <div className="flex h-3 w-32 rounded overflow-hidden" style={{
+                      background: nodeGradient
+                    }}></div>
+                    <span className="text-[10px]">{maxNodeDegree}</span>
+                    <span className="ml-1">occurrences</span>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px]">1</span>
-                <div className="flex h-3 w-32 rounded overflow-hidden" style={{
-                  background: nodeGradient
-                }}></div>
-                <span className="text-[10px]">{maxNodeDegree}</span>
-                <span className="ml-1">occurrences</span>
+              <div className="flex items-center gap-3">
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-semibold">Edge color = frequency:</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px]">1</span>
+                    <div className="flex h-3 w-32 rounded overflow-hidden" style={{
+                      background: edgeGradient
+                    }}></div>
+                    <span className="text-[10px]">{maxEdgeFrequency}</span>
+                    <span className="ml-1">occurrences</span>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+          {showEmbeddings && clusteringData && (
+            <div className="flex items-center gap-3">
+              <div className="flex flex-col w-full">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-semibold">Cluster view (k={currentK}):</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {Object.entries(clusteringData.cluster_summaries?.[`k_${currentK}`] || {}).map(([clusterId, summary]) => {
+                    const clusterNum = parseInt(clusterId.split('_')[1]);
+                    // Get cluster color - use the same logic as in the graph
+                    let color: string;
+                    if (currentK > 10) {
+                      const t = currentK > 1 ? clusterNum / (currentK - 1) : 0;
+                      color = d3.interpolateRainbow(t);
+                    } else {
+                      // Use schemeCategory10 directly as an array
+                      color = d3.schemeCategory10[clusterNum % 10];
+                    }
+                    return (
+                      <div key={clusterId} className="flex items-center gap-2">
+                        <div className="w-4 h-4 rounded" style={{ backgroundColor: color }}></div>
+                        <span className="text-[10px]">{summary.summary} ({summary.size})</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="font-semibold">Edge color = frequency:</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px]">1</span>
-                <div className="flex h-3 w-32 rounded overflow-hidden" style={{
-                  background: edgeGradient
-                }}></div>
-                <span className="text-[10px]">{maxEdgeFrequency}</span>
-                <span className="ml-1">occurrences</span>
-              </div>
-            </div>
-          </div>
+          )}
           {longestPaths.length > 0 && (
             <div className="flex items-center gap-3 mt-2">
               <div className="flex flex-col">
