@@ -69,23 +69,36 @@ export default function NetworkGraph() {
   const [showEmbeddings, setShowEmbeddings] = useState(false);
   const [currentK, setCurrentK] = useState(2);
   const [graphReady, setGraphReady] = useState(false);
+  const [useGPTClustering, setUseGPTClustering] = useState(false);
 
+  // Load clustering data based on useGPTClustering state
   useEffect(() => {
-    fetch('/clustering_results.json')
+    const jsonFile = useGPTClustering
+      ? '/clustering_results_gpt_5.2.json'
+      : '/clustering_results.json';
+
+    setLoading(true);
+    fetch(jsonFile)
       .then((res) => res.json())
       .then((json) => {
         setClusteringData(json);
         setData(json.data);
         setLoading(false);
-        console.log('Loaded clustering data:', json);
+        console.log(`Loaded clustering data from ${jsonFile}:`, json);
+
+        // Set currentK to the minimum available k value
+        if (json.metadata?.k_values?.length > 0) {
+          const minK = Math.min(...json.metadata.k_values);
+          setCurrentK(minK);
+        }
       })
       .catch((err) => {
-        console.error('Error loading clustering data:', err);
+        console.error(`Error loading clustering data from ${jsonFile}:`, err);
         setLoading(false);
       });
-  }, []);
+  }, [useGPTClustering]);
 
-  // Keyboard listener for 'L' key to toggle dark mode, '1-9' for longest paths, 'j' for animation, 'e' for embeddings, 'u'/'i' for k adjustment
+  // Keyboard listener for 'L' key to toggle dark mode, '1-9' for longest paths, 'j' for animation, 'e' for embeddings, 'u'/'i' for k adjustment, 'c' for clustering data
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'l' || event.key === 'L') {
@@ -96,12 +109,27 @@ export default function NetworkGraph() {
       } else if (event.key === 'e' || event.key === 'E') {
         // Toggle embedding view
         setShowEmbeddings((prev) => !prev);
+      } else if (event.key === 'c' || event.key === 'C') {
+        // Toggle between clustering data sources
+        setUseGPTClustering((prev) => !prev);
       } else if (event.key === 'u' || event.key === 'U') {
-        // Decrease k value (minimum 2)
-        setCurrentK((prev) => Math.max(2, prev - 1));
+        // Decrease k value
+        if (clusteringData?.metadata?.k_values) {
+          const kValues = clusteringData.metadata.k_values.sort((a, b) => a - b);
+          const currentIndex = kValues.indexOf(currentK);
+          if (currentIndex > 0) {
+            setCurrentK(kValues[currentIndex - 1]);
+          }
+        }
       } else if (event.key === 'i' || event.key === 'I') {
-        // Increase k value (maximum 10)
-        setCurrentK((prev) => Math.min(10, prev + 1));
+        // Increase k value
+        if (clusteringData?.metadata?.k_values) {
+          const kValues = clusteringData.metadata.k_values.sort((a, b) => a - b);
+          const currentIndex = kValues.indexOf(currentK);
+          if (currentIndex < kValues.length - 1) {
+            setCurrentK(kValues[currentIndex + 1]);
+          }
+        }
       } else if (event.key >= '1' && event.key <= '9') {
         const pathNumber = parseInt(event.key);
         const pathIndex = pathNumber - 1;
@@ -125,7 +153,7 @@ export default function NetworkGraph() {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [longestPaths, showLongestPath, selectedPathIndex, isAnimating]);
+  }, [longestPaths, showLongestPath, selectedPathIndex, isAnimating, clusteringData, currentK]);
 
   // Animation effect for cycling through top 1000 paths from shortest to longest
   useEffect(() => {
@@ -868,6 +896,9 @@ export default function NetworkGraph() {
             <div className={`text-xs px-3 py-1 rounded-full ${darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600'}`}>
               Press L to toggle theme
             </div>
+            <div className={`text-xs px-3 py-1 rounded-full ${useGPTClustering ? (darkMode ? 'bg-orange-700 text-orange-200' : 'bg-orange-200 text-orange-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
+              Press C to toggle data {useGPTClustering ? '(GPT-5.2)' : '(embedding)'}
+            </div>
             <div className={`text-xs px-3 py-1 rounded-full ${showLongestPath ? (darkMode ? 'bg-green-700 text-green-200' : 'bg-green-200 text-green-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
               Press 1-{longestPaths.length} to show longest paths {showLongestPath && !isAnimating ? `(showing #${selectedPathIndex + 1})` : ''}
             </div>
@@ -877,9 +908,13 @@ export default function NetworkGraph() {
             <div className={`text-xs px-3 py-1 rounded-full ${showEmbeddings ? (darkMode ? 'bg-cyan-700 text-cyan-200' : 'bg-cyan-200 text-cyan-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
               Press E to toggle embeddings {showEmbeddings ? `(k=${currentK})` : ''}
             </div>
-            {showEmbeddings && (
+            {showEmbeddings && clusteringData?.metadata?.k_values && clusteringData.metadata.k_values.length > 1 && (
               <div className={`text-xs px-3 py-1 rounded-full ${darkMode ? 'bg-cyan-700 text-cyan-200' : 'bg-cyan-200 text-cyan-800'}`}>
-                Press U/I for clusters {currentK > 2 ? '▼' : ''}{currentK < 10 ? '▲' : ''}
+                Press U/I for clusters {(() => {
+                  const kValues = clusteringData.metadata.k_values.sort((a, b) => a - b);
+                  const currentIndex = kValues.indexOf(currentK);
+                  return (currentIndex > 0 ? '▼' : '') + (currentIndex < kValues.length - 1 ? '▲' : '');
+                })()}
               </div>
             )}
           </div>
