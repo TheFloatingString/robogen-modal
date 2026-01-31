@@ -69,7 +69,7 @@ export default function NetworkGraph() {
   const [showEmbeddings, setShowEmbeddings] = useState(false);
   const [currentK, setCurrentK] = useState(2);
   const [graphReady, setGraphReady] = useState(false);
-  const [dataSource, setDataSource] = useState<'embedding' | 'gpt' | 'drop-first-word' | 'drop-first-word-k10-20'>('embedding');
+  const [dataSource, setDataSource] = useState<'embedding' | 'gpt' | 'drop-first-word' | 'drop-first-word-k10-20' | 'k10-20-drop-first-word'>('embedding');
 
   // Load clustering data based on dataSource state
   useEffect(() => {
@@ -78,7 +78,9 @@ export default function NetworkGraph() {
       : dataSource === 'drop-first-word'
       ? '/clustering_results.-drop_first_word.json'
       : dataSource === 'drop-first-word-k10-20'
-      ? '/clustering_results-drop-first-word-k10-20.json'
+      ? '/clustering_results-k10-20.json'
+      : dataSource === 'k10-20-drop-first-word'
+      ? '/clustering_results_k10-20-drop_first_word.json'
       : '/clustering_results.json';
 
     setLoading(true);
@@ -119,6 +121,7 @@ export default function NetworkGraph() {
           if (prev === 'embedding') return 'gpt';
           if (prev === 'gpt') return 'drop-first-word';
           if (prev === 'drop-first-word') return 'drop-first-word-k10-20';
+          if (prev === 'drop-first-word-k10-20') return 'k10-20-drop-first-word';
           return 'embedding';
         });
       } else if (event.key === 'u' || event.key === 'U') {
@@ -906,7 +909,7 @@ export default function NetworkGraph() {
               Press L to toggle theme
             </div>
             <div className={`text-xs px-3 py-1 rounded-full ${dataSource !== 'embedding' ? (darkMode ? 'bg-orange-700 text-orange-200' : 'bg-orange-200 text-orange-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
-              Press C to cycle data ({dataSource === 'gpt' ? 'GPT-5.2' : dataSource === 'drop-first-word' ? 'Drop-1st-Word (k2-9)' : dataSource === 'drop-first-word-k10-20' ? 'Drop-1st-Word (k10-20)' : 'Embedding'})
+              Press C to cycle data ({dataSource === 'gpt' ? 'GPT-5.2' : dataSource === 'drop-first-word' ? 'Drop-1st-Word (k2-9)' : dataSource === 'drop-first-word-k10-20' ? 'k10-20' : dataSource === 'k10-20-drop-first-word' ? 'k10-20 Drop-1st-Word' : 'Embedding'})
             </div>
             <div className={`text-xs px-3 py-1 rounded-full ${showLongestPath ? (darkMode ? 'bg-green-700 text-green-200' : 'bg-green-200 text-green-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
               Press 1-{longestPaths.length} to show longest paths {showLongestPath && !isAnimating ? `(showing #${selectedPathIndex + 1})` : ''}
