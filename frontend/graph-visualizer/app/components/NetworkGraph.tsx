@@ -69,12 +69,16 @@ export default function NetworkGraph() {
   const [showEmbeddings, setShowEmbeddings] = useState(false);
   const [currentK, setCurrentK] = useState(2);
   const [graphReady, setGraphReady] = useState(false);
-  const [useGPTClustering, setUseGPTClustering] = useState(false);
+  const [dataSource, setDataSource] = useState<'embedding' | 'gpt' | 'drop-first-word' | 'drop-first-word-k10-20'>('embedding');
 
-  // Load clustering data based on useGPTClustering state
+  // Load clustering data based on dataSource state
   useEffect(() => {
-    const jsonFile = useGPTClustering
+    const jsonFile = dataSource === 'gpt'
       ? '/clustering_results_gpt_5.2.json'
+      : dataSource === 'drop-first-word'
+      ? '/clustering_results.-drop_first_word.json'
+      : dataSource === 'drop-first-word-k10-20'
+      ? '/clustering_results-drop-first-word-k10-20.json'
       : '/clustering_results.json';
 
     setLoading(true);
@@ -96,7 +100,7 @@ export default function NetworkGraph() {
         console.error(`Error loading clustering data from ${jsonFile}:`, err);
         setLoading(false);
       });
-  }, [useGPTClustering]);
+  }, [dataSource]);
 
   // Keyboard listener for 'L' key to toggle dark mode, '1-9' for longest paths, 'j' for animation, 'e' for embeddings, 'u'/'i' for k adjustment, 'c' for clustering data
   useEffect(() => {
@@ -110,8 +114,13 @@ export default function NetworkGraph() {
         // Toggle embedding view
         setShowEmbeddings((prev) => !prev);
       } else if (event.key === 'c' || event.key === 'C') {
-        // Toggle between clustering data sources
-        setUseGPTClustering((prev) => !prev);
+        // Cycle through clustering data sources
+        setDataSource((prev) => {
+          if (prev === 'embedding') return 'gpt';
+          if (prev === 'gpt') return 'drop-first-word';
+          if (prev === 'drop-first-word') return 'drop-first-word-k10-20';
+          return 'embedding';
+        });
       } else if (event.key === 'u' || event.key === 'U') {
         // Decrease k value
         if (clusteringData?.metadata?.k_values) {
@@ -896,8 +905,8 @@ export default function NetworkGraph() {
             <div className={`text-xs px-3 py-1 rounded-full ${darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600'}`}>
               Press L to toggle theme
             </div>
-            <div className={`text-xs px-3 py-1 rounded-full ${useGPTClustering ? (darkMode ? 'bg-orange-700 text-orange-200' : 'bg-orange-200 text-orange-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
-              Press C to toggle data {useGPTClustering ? '(GPT-5.2)' : '(embedding)'}
+            <div className={`text-xs px-3 py-1 rounded-full ${dataSource !== 'embedding' ? (darkMode ? 'bg-orange-700 text-orange-200' : 'bg-orange-200 text-orange-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
+              Press C to cycle data ({dataSource === 'gpt' ? 'GPT-5.2' : dataSource === 'drop-first-word' ? 'Drop-1st-Word (k2-9)' : dataSource === 'drop-first-word-k10-20' ? 'Drop-1st-Word (k10-20)' : 'Embedding'})
             </div>
             <div className={`text-xs px-3 py-1 rounded-full ${showLongestPath ? (darkMode ? 'bg-green-700 text-green-200' : 'bg-green-200 text-green-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
               Press 1-{longestPaths.length} to show longest paths {showLongestPath && !isAnimating ? `(showing #${selectedPathIndex + 1})` : ''}
@@ -921,6 +930,12 @@ export default function NetworkGraph() {
         </div>
         <p className={`text-sm mt-1 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
           Hover over nodes to see task details. Drag nodes to rearrange. Scroll to zoom.
+          {clusteringData?.metadata && (
+            <span className={`ml-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+              • Model: {clusteringData.metadata.embedding_model || 'N/A'}
+              • {clusteringData.metadata.total_unique_substeps} unique substeps
+            </span>
+          )}
           {isAnimating && top1000Paths[animationPathIndex] && (
             <span className={`ml-2 font-semibold ${darkMode ? 'text-purple-300' : 'text-purple-600'}`}>
               Currently showing path with {top1000Paths[animationPathIndex].length} nodes
