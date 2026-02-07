@@ -3,7 +3,8 @@
     "allow": [
       "Bash(node verify_nodes.js:*)",
       "Bash(node -e:*)",
-      "Bash(node check_structure.js:*)"
+      "Bash(node check_structure.js:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

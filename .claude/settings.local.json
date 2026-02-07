@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(modal run:*)",
+      "Bash(chmod:*)"
+    ]
+  }
+}
