@@ -231,6 +231,69 @@ Respond with ONLY the JSON object, no other text."""
     return substep_to_category
 
 
+def gpt_fixed_categories_classification(
+    client: OpenAI, substeps: List[str], model: str = "gpt-5.2"
+) -> Dict[str, str]:
+    """Use GPT to classify each substep into one of nine predefined human-labeled categories."""
+    categories = [
+        "open sliding object",
+        "close sliding object",
+        "put small object in large object",
+        "put small object on surface of flat object",
+        "apply tool on target object",
+        "twist target object",
+        "move target towards location",
+        "grasp target object",
+        "release object"
+    ]
+
+    substeps_list = "\n".join(f"- {step}" for step in substeps)
+
+    prompt = f"""You are tasked with classifying robotic task substeps into one of these nine predefined categories:
+
+1. "open sliding object" - Opening drawers, cabinets, sliding doors, etc.
+2. "close sliding object" - Closing drawers, cabinets, sliding doors, etc.
+3. "put small object in large object" - Placing objects inside containers, drawers, cabinets, etc.
+4. "put small object on surface of flat object" - Placing objects on top of surfaces like tables, counters, shelves, etc.
+5. "apply tool on target object" - Using a tool to manipulate or interact with an object
+6. "twist target object" - Rotating or twisting objects (knobs, lids, caps, etc.)
+7. "move target towards location" - Moving objects to specific locations without placing on/in something
+8. "grasp target object" - Picking up or grasping objects
+9. "release object" - Letting go of or releasing held objects
+
+Here are all the substeps to classify:
+
+{substeps_list}
+
+For each substep, determine which of the nine categories best describes the action. If a substep doesn't clearly fit any category, choose the most relevant one.
+
+Respond with a JSON object mapping each substep text to its category name (must be exactly one of the nine categories listed above):
+{{
+  "substep text 1": "category_name",
+  "substep text 2": "category_name",
+  ...
+}}
+
+Respond with ONLY the JSON object, no other text."""
+
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a helpful assistant that classifies robot task actions into predefined categories. You always respond with valid JSON.",
+            },
+            {"role": "user", "content": prompt},
+        ],
+        temperature=0.2,
+        response_format={"type": "json_object"},
+    )
+
+    # Parse and return the mapping
+    substep_to_category = json.loads(response.choices[0].message.content)
+    return substep_to_category
+
+
 def transform_gpt_categorization_to_clustering_format(
     substeps: List[str], substep_to_category: Dict[str, str]
 ) -> tuple[np.ndarray, Dict[int, Dict[str, Any]]]:
@@ -353,6 +416,11 @@ def main():
         help="Remove the first word from each substep before generating embeddings",
     )
     parser.add_argument(
+        "--use-human-labeled",
+        action="store_true",
+        help="Use predefined human-labeled categories for classification (9 fixed categories)",
+    )
+    parser.add_argument(
         "--clustering-method",
         type=str,
         choices=["hierarchical-kmeans", "kmeans", "spectral", "hdbscan"],
@@ -419,6 +487,33 @@ def main():
     substeps, original_data = load_substeps(str(input_file))
 
     embedding_type = args.embedding_type
+
+    # Handle human-labeled classification
+    if args.use_human_labeled:
+        print("\n--- Using human-labeled fixed categories (k=9) ---")
+        substep_to_category = gpt_fixed_categories_classification(client, substeps)
+        labels, cluster_info = transform_gpt_categorization_to_clustering_format(
+            substeps, substep_to_category
+        )
+        clustering_results = {9: labels}
+        cluster_summaries = {9: cluster_info}
+
+        # Export with human-labeled suffix
+        output_file_human = input_file.parent / f"clustering_results_human_labeled_k9.json"
+        export_results(
+            substeps,
+            original_data,
+            clustering_results,
+            cluster_summaries,
+            str(output_file_human),
+            method="human-labeled-gpt-5.2",
+            clustering_method="fixed-categories"
+        )
+
+        print("\n" + "=" * 60)
+        print("Analysis complete!")
+        print("=" * 60)
+        return
 
     # Handle different embedding types
     if embedding_type == "text-embedding-3-small":
