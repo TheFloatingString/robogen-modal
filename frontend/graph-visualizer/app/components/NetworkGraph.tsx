@@ -69,7 +69,7 @@ export default function NetworkGraph() {
   const [showEmbeddings, setShowEmbeddings] = useState(false);
   const [currentK, setCurrentK] = useState(2);
   const [graphReady, setGraphReady] = useState(false);
-  const [dataSource, setDataSource] = useState<'embedding' | 'gpt' | 'drop-first-word' | 'drop-first-word-k10-20' | 'k10-20-drop-first-word' | 'hierarchical-kmeans' | 'spectral'>('embedding');
+  const [dataSource, setDataSource] = useState<'embedding' | 'gpt' | 'drop-first-word' | 'drop-first-word-k10-20' | 'k10-20-drop-first-word' | 'hierarchical-kmeans' | 'spectral' | 'human-labeled'>('embedding');
 
   // Load clustering data based on dataSource state
   useEffect(() => {
@@ -85,6 +85,8 @@ export default function NetworkGraph() {
       ? '/clustering_results_hierarchical-kmeans_k3-20.json'
       : dataSource === 'spectral'
       ? '/clustering_results_spectral_k3-20.json'
+      : dataSource === 'human-labeled'
+      ? '/clustering_results_human_labeled_k9.json'
       : '/clustering_results.json';
 
     setLoading(true);
@@ -128,6 +130,7 @@ export default function NetworkGraph() {
           if (prev === 'drop-first-word-k10-20') return 'k10-20-drop-first-word';
           if (prev === 'k10-20-drop-first-word') return 'hierarchical-kmeans';
           if (prev === 'hierarchical-kmeans') return 'spectral';
+          if (prev === 'spectral') return 'human-labeled';
           return 'embedding';
         });
       } else if (event.key === 'u' || event.key === 'U') {
@@ -915,7 +918,7 @@ export default function NetworkGraph() {
               Press L to toggle theme
             </div>
             <div className={`text-xs px-3 py-1 rounded-full ${dataSource !== 'embedding' ? (darkMode ? 'bg-orange-700 text-orange-200' : 'bg-orange-200 text-orange-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
-              Press C to cycle data ({dataSource === 'gpt' ? 'GPT-5.2' : dataSource === 'drop-first-word' ? 'Drop-1st-Word (k2-9)' : dataSource === 'drop-first-word-k10-20' ? 'k10-20' : dataSource === 'k10-20-drop-first-word' ? 'k10-20 Drop-1st-Word' : dataSource === 'hierarchical-kmeans' ? 'Hierarchical K-means (k3-20)' : dataSource === 'spectral' ? 'Spectral (k3-20)' : 'Embedding'})
+              Press C to cycle data ({dataSource === 'gpt' ? 'GPT-5.2' : dataSource === 'drop-first-word' ? 'Drop-1st-Word (k2-9)' : dataSource === 'drop-first-word-k10-20' ? 'k10-20' : dataSource === 'k10-20-drop-first-word' ? 'k10-20 Drop-1st-Word' : dataSource === 'hierarchical-kmeans' ? 'Hierarchical K-means (k3-20)' : dataSource === 'spectral' ? 'Spectral (k3-20)' : dataSource === 'human-labeled' ? 'Human-Labeled (k9)' : 'Embedding'})
             </div>
             <div className={`text-xs px-3 py-1 rounded-full ${showLongestPath ? (darkMode ? 'bg-green-700 text-green-200' : 'bg-green-200 text-green-800') : (darkMode ? 'bg-slate-700 text-blue-400' : 'bg-gray-100 text-gray-600')}`}>
               Press 1-{longestPaths.length} to show longest paths {showLongestPath && !isAnimating ? `(showing #${selectedPathIndex + 1})` : ''}
